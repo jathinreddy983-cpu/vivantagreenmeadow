@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "Vivanta Green Meadows"
+version = "1.0.0"
+id = "artifacts/vivanta-green-meadows"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23824
+
+[services.development]
+run = "pnpm --filter @workspace/vivanta-green-meadows run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/vivanta-green-meadows", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/vivanta-green-meadows/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23824"
+BASE_PATH = "/"
