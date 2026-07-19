@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, AlertCircle, Compass, FileText } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle, Compass, FileText, Maximize2, Minimize2 } from 'lucide-react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
@@ -941,6 +941,22 @@ function ThreeDPlan({ plots, onSelectPlot }: { plots: Plot[]; onSelectPlot: (plo
 export default function MasterPlan() {
   const [selectedPlot, setSelectedPlot] = useState<Plot | null>(null);
   const [viewMode, setViewMode] = useState<'Brochure' | '3D'>('Brochure');
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const fullscreenContainerRef = useRef<HTMLDivElement>(null);
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      fullscreenContainerRef.current?.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
+  useEffect(() => {
+    const handleFsChange = () => setIsFullscreen(!!document.fullscreenElement);
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
 
   const getPlotButton = (id: string, customClasses = '') => {
     const plot = plots.find(p => p.id === id);
@@ -1027,7 +1043,12 @@ export default function MasterPlan() {
         </div>
 
         {/* Plan Area */}
-        <div className="relative bg-white rounded-sm shadow-md border border-border overflow-hidden">
+        <div
+          ref={fullscreenContainerRef}
+          className={`relative bg-white rounded-sm shadow-md border border-border overflow-hidden ${
+            isFullscreen ? 'fixed inset-0 z-[9999] rounded-none border-0 shadow-none' : ''
+          }`}
+        >
           {viewMode === 'Brochure' ? (
             <div className="p-4 md:p-8 flex flex-col items-center justify-center bg-stone-50 border border-stone-200 shadow-inner rounded-sm">
               <div className="text-center mb-4">
@@ -1045,7 +1066,21 @@ export default function MasterPlan() {
               <p className="text-[10px] text-stone-500 mt-3">Click image to open high-resolution view in a new tab</p>
             </div>
           ) : (
-            <ThreeDPlan plots={plots} onSelectPlot={setSelectedPlot} />
+            <div className={`relative ${isFullscreen ? 'w-full h-screen' : ''}`}>
+              <ThreeDPlan plots={plots} onSelectPlot={setSelectedPlot} />
+              {/* Fullscreen Toggle Button */}
+              <button
+                onClick={toggleFullscreen}
+                className="absolute bottom-4 right-4 z-20 flex items-center gap-2 bg-forest-900/80 hover:bg-forest-900 text-white backdrop-blur-sm border border-white/20 px-3 py-2 rounded-sm text-xs font-sans font-bold uppercase tracking-wider transition-all duration-200 shadow-lg hover:shadow-xl"
+                title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+              >
+                {isFullscreen ? (
+                  <><Minimize2 className="w-3.5 h-3.5" /> Exit Fullscreen</>
+                ) : (
+                  <><Maximize2 className="w-3.5 h-3.5" /> Fullscreen</>
+                )}
+              </button>
+            </div>
           )}
         </div>
 
