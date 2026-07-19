@@ -67,7 +67,7 @@ const generatePlots = (): Plot[] => {
     const type = getPlotType(id);
     const facing = getFacing(id);
     const idVal = parseInt(id);
-    const status = (idVal % 3 === 0 || idVal % 7 === 0) ? 'booked' : 'available';
+    const status = 'available';
 
     let sqft = 1200;
     let price = '₹ 45 L - 50 L';
