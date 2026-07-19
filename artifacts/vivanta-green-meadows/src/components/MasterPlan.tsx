@@ -995,13 +995,7 @@ export default function MasterPlan() {
               Click on any plot in the interactive layout map to view its dimension specs, pricing, and facing orientation, and instantly check its availability.
             </p>
           </div>
-          <div className="shrink-0 flex items-center gap-2 bg-white/80 px-4 py-2 border border-gold-500/30 rounded-sm shadow-sm">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Seal_of_Karnataka.svg/150px-Seal_of_Karnataka.svg.png" className="w-8 h-8 opacity-50 grayscale" alt="Emblem" />
-            <div>
-              <div className="text-[10px] uppercase font-bold text-forest-900 tracking-widest">BMRDA Approved</div>
-              <div className="text-[9px] uppercase text-forest-700">STRR Planning Auth</div>
-            </div>
-          </div>
+
         </div>
 
         {/* View Mode Toggle */}
