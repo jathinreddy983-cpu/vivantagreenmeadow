@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, AlertCircle, Compass, Grid, FileText } from 'lucide-react';
+import { X, CheckCircle2, AlertCircle, Compass, FileText } from 'lucide-react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
@@ -940,7 +940,7 @@ function ThreeDPlan({ plots, onSelectPlot }: { plots: Plot[]; onSelectPlot: (plo
 
 export default function MasterPlan() {
   const [selectedPlot, setSelectedPlot] = useState<Plot | null>(null);
-  const [viewMode, setViewMode] = useState<'2D' | 'Brochure' | '3D'>('2D');
+  const [viewMode, setViewMode] = useState<'Brochure' | '3D'>('Brochure');
 
   const getPlotButton = (id: string, customClasses = '') => {
     const plot = plots.find(p => p.id === id);
@@ -1008,17 +1008,6 @@ export default function MasterPlan() {
         <div className="flex justify-center mb-8">
           <div className="bg-[#e2ece0] p-1.5 rounded-full border border-[#c3dcbe]/50 shadow-sm flex flex-wrap gap-1 justify-center">
             <button
-              onClick={() => setViewMode('2D')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 ${
-                viewMode === '2D'
-                  ? 'bg-forest-900 text-white shadow-md'
-                  : 'text-forest-700 hover:text-forest-900'
-              }`}
-            >
-              <Grid className="w-3.5 h-3.5" />
-              2D Interactive Grid
-            </button>
-            <button
               onClick={() => setViewMode('Brochure')}
               className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 ${
                 viewMode === 'Brochure'
@@ -1045,158 +1034,7 @@ export default function MasterPlan() {
 
         {/* Plan Area */}
         <div className="relative bg-white rounded-sm shadow-md border border-border overflow-hidden">
-          {viewMode === '2D' ? (
-            <div className="p-4 md:p-8 overflow-x-auto">
-              <div className="min-w-[950px] bg-stone-50 border border-stone-200 p-6 rounded-sm flex flex-col gap-6">
-                
-                {/* Map Layout Grid */}
-                <div className="flex gap-4 p-4 bg-white border border-stone-200 shadow-inner rounded-sm relative">
-                  
-                  {/* Winding Park (Far Left) */}
-                  <div className="w-14 bg-gradient-to-b from-green-800/80 via-emerald-700/80 to-green-800/80 border border-emerald-800 text-white flex flex-col justify-between items-center py-8 text-[10px] font-bold tracking-widest uppercase rounded-sm">
-                    <span className="transform -rotate-90 origin-center whitespace-nowrap">Landscaped Park</span>
-                    <div className="flex flex-col gap-1 items-center">
-                      <span>⛲</span>
-                      <span>🏡</span>
-                      <span>⛲</span>
-                    </div>
-                    <span className="transform -rotate-90 origin-center whitespace-nowrap">Walking Paths</span>
-                  </div>
-
-                  {/* 30 Ft Internal Road (Vertical) */}
-                  <div className="w-8 bg-slate-300 border-l border-r border-dashed border-white flex items-center justify-center relative">
-                    <span className="transform -rotate-90 text-[9px] text-slate-500 uppercase tracking-widest whitespace-nowrap">30 Ft Internal Road</span>
-                  </div>
-
-                  {/* Column 1 */}
-                  <div className="flex-1 flex flex-col gap-4">
-                    {/* Column 1 Top (83-85 vs 82-80) */}
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="flex flex-col gap-1">{['83', '84', '85'].map(id => getPlotButton(id))}</div>
-                      <div className="flex flex-col gap-1">{['82', '81', '80'].map(id => getPlotButton(id))}</div>
-                    </div>
-                    
-                    {/* Road */}
-                    <div className="h-10 bg-slate-300 flex items-center justify-center relative border-t border-b border-dashed border-white">
-                      <span className="text-[9px] text-slate-500 uppercase tracking-widest">40 Ft Avenue Road</span>
-                    </div>
-
-                    {/* Column 1 Bottom (86-95 vs 79-70) */}
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="flex flex-col gap-1">{['86', '87', '88', '89', '90', '91', '92', '93', '94', '95'].map(id => getPlotButton(id))}</div>
-                      <div className="flex flex-col gap-1">{['79', '78', '77', '76', '75', '74', '73', '72', '71', '70'].map(id => getPlotButton(id))}</div>
-                    </div>
-                  </div>
-
-                  {/* 30 Ft Internal Road (Vertical) */}
-                  <div className="w-8 bg-slate-300 border-l border-r border-dashed border-white flex items-center justify-center relative">
-                    <span className="transform -rotate-90 text-[9px] text-slate-500 uppercase tracking-widest whitespace-nowrap">30 Ft Internal Road</span>
-                  </div>
-
-                  {/* Column 2 */}
-                  <div className="flex-1 flex flex-col gap-4">
-                    {/* Column 2 Top (57-59 vs 56-54) */}
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="flex flex-col gap-1">{['57', '58', '59'].map(id => getPlotButton(id))}</div>
-                      <div className="flex flex-col gap-1">{['56', '55', '54'].map(id => getPlotButton(id))}</div>
-                    </div>
-                    
-                    {/* Road */}
-                    <div className="h-10 bg-slate-300 flex items-center justify-center relative border-t border-b border-dashed border-white">
-                      <span className="text-[9px] text-slate-500 uppercase tracking-widest">40 Ft Avenue Road</span>
-                    </div>
-
-                    {/* Column 2 Bottom (60-69 vs 53-44) */}
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="flex flex-col gap-1">{['60', '61', '62', '63', '64', '65', '66', '67', '68', '69'].map(id => getPlotButton(id))}</div>
-                      <div className="flex flex-col gap-1">{['53', '52', '51', '50', '49', '48', '47', '46', '45', '44'].map(id => getPlotButton(id))}</div>
-                    </div>
-                  </div>
-
-                  {/* 30 Ft Internal Road (Vertical) */}
-                  <div className="w-8 bg-slate-300 border-l border-r border-dashed border-white flex items-center justify-center relative">
-                    <span className="transform -rotate-90 text-[9px] text-slate-500 uppercase tracking-widest whitespace-nowrap">30 Ft Internal Road</span>
-                  </div>
-
-                  {/* Column 3 */}
-                  <div className="flex-1 flex flex-col gap-4">
-                    {/* Column 3 Top (30-32 vs 29-27) */}
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="flex flex-col gap-1">{['30', '31', '32'].map(id => getPlotButton(id))}</div>
-                      <div className="flex flex-col gap-1">{['29', '28', '27'].map(id => getPlotButton(id))}</div>
-                    </div>
-                    
-                    {/* Road */}
-                    <div className="h-10 bg-slate-300 flex items-center justify-center relative border-t border-b border-dashed border-white">
-                      <span className="text-[9px] text-slate-500 uppercase tracking-widest">40 Ft Avenue Road</span>
-                    </div>
-
-                    {/* Column 3 Bottom (33-43 vs 26-16) */}
-                    <div className="grid grid-cols-2 gap-1">
-                      <div className="flex flex-col gap-1">{['33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43'].map(id => getPlotButton(id))}</div>
-                      <div className="flex flex-col gap-1">{['26', '25', '24', '23', '22', '21', '20', '19', '18', '17', '16'].map(id => getPlotButton(id))}</div>
-                    </div>
-                  </div>
-
-                  {/* 30 Ft Internal Road (Vertical) */}
-                  <div className="w-8 bg-slate-300 border-l border-r border-dashed border-white flex items-center justify-center relative">
-                    <span className="transform -rotate-90 text-[9px] text-slate-500 uppercase tracking-widest whitespace-nowrap">30 Ft Internal Road</span>
-                  </div>
-
-                  {/* Column 4 */}
-                  <div className="flex-1 flex flex-col gap-4">
-                    {/* Column 4 Top (1-3 vs C.A) */}
-                    <div className="grid grid-cols-2 gap-1 h-[115px]">
-                      <div className="flex flex-col gap-1 flex-1">
-                        {['01', '02', '03'].map(id => getPlotButton(id, 'flex-1'))}
-                      </div>
-                      <div className="flex flex-col flex-1 h-full">
-                        {getPlotButton('C.A', 'h-full flex-1')}
-                      </div>
-                    </div>
-                    
-                    {/* Road */}
-                    <div className="h-10 bg-slate-300 flex items-center justify-center relative border-t border-b border-dashed border-white">
-                      <span className="text-[9px] text-slate-500 uppercase tracking-widest">40 Ft Avenue Road</span>
-                    </div>
-
-                    {/* Column 4 Bottom (4-9,12 vs LandBank) */}
-                    <div className="flex flex-col gap-1">
-                      <div className="grid grid-cols-2 gap-1 h-[230px]">
-                        <div className="flex flex-col gap-1 flex-1">
-                          {['04', '05', '06', '07', '08', '09'].map(id => getPlotButton(id, 'flex-1'))}
-                        </div>
-                        <div className="flex flex-col flex-1 h-full">
-                          {getPlotButton('STRR Land Bank', 'h-full flex-1')}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-2 gap-1">
-                        <div className="flex flex-col gap-1">
-                          {getPlotButton('12')}
-                          <div className="h-[35px] border border-transparent"></div>
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          {['10', '11'].map(id => getPlotButton(id))}
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col gap-1 mt-2">
-                        {['13', '14', '15'].map(id => getPlotButton(id, 'w-full h-[40px]'))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Slanted Road */}
-                  <div className="w-10 bg-slate-300 border-l border-r border-dashed border-white flex items-center justify-center relative rounded-sm shadow-sm overflow-hidden">
-                    <div className="absolute inset-0 bg-slate-300 transform skew-x-6 origin-top"></div>
-                    <span className="relative text-[9px] text-slate-500 uppercase tracking-widest whitespace-nowrap transform rotate-90">Slanted Avenue Road</span>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          ) : viewMode === 'Brochure' ? (
+          {viewMode === 'Brochure' ? (
             <div className="p-4 md:p-8 flex flex-col items-center justify-center bg-stone-50 border border-stone-200 shadow-inner rounded-sm">
               <div className="text-center mb-4">
                 <span className="text-xs uppercase text-stone-500 font-sans tracking-widest block mb-1">STRR Approved Plan</span>
