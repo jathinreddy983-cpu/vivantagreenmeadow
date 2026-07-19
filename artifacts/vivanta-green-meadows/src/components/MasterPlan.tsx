@@ -145,7 +145,10 @@ function ThreeDPlan({ plots, onSelectPlot }: { plots: Plot[]; onSelectPlot: (plo
     // Controls
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
+    controls.dampingFactor = 0.08;
+    controls.rotateSpeed = 0.4;
+    controls.panSpeed = 0.4;
+    controls.zoomSpeed = 0.5;
     controls.maxPolarAngle = Math.PI / 2 - 0.05;
     controls.minDistance = 15;
     controls.maxDistance = 100;
