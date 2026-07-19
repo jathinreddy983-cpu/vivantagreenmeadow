@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 import gardenImg from '@assets/generated_images/landscaped-gardens.jpg';
+
+const VIDEO_URL = 'https://res.cloudinary.com/az8sjisv/video/upload/v1784484696/watch_story_vedio_nlxnbk.mp4';
 
 const stats = [
   { value: '95+', label: 'Premium Plots' },
@@ -31,7 +34,70 @@ function AnimatedStat({ value, label, delay }: { value: string; label: string; d
   );
 }
 
+function VideoModal({ onClose }: { onClose: () => void }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Prevent body scroll while modal is open
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = ''; };
+  }, []);
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        key="video-modal-backdrop"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+        onClick={onClose}
+      >
+        <motion.div
+          key="video-modal-content"
+          initial={{ scale: 0.88, opacity: 0, y: 24 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.88, opacity: 0, y: 24 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
+          onClick={e => e.stopPropagation()}
+        >
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm border border-white/20 transition-all duration-200"
+            aria-label="Close video"
+          >
+            <X className="w-4 h-4" />
+          </button>
+
+          {/* Label */}
+          <div className="absolute top-3 left-4 z-10 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-white/80">
+              Watch Our Story
+            </span>
+          </div>
+
+          {/* Video */}
+          <video
+            ref={videoRef}
+            src={VIDEO_URL}
+            controls
+            autoPlay
+            className="w-full aspect-video bg-black"
+            style={{ display: 'block' }}
+          />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
 export default function Hero() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <section
       id="hero"
@@ -118,7 +184,7 @@ export default function Hero() {
                 </a>
                 <button
                   className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 squircle-lg border border-forest-800/20 hover:border-forest-800/80 bg-white/60 hover:bg-white/95 text-forest-900 font-sans text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-sm hover:shadow-md"
-                  onClick={() => alert('Story Video Coming Soon!')}
+                  onClick={() => setShowVideo(true)}
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current text-plum-brand">
                     <path d="M8 5v14l11-7z" />
@@ -190,6 +256,9 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      {showVideo && <VideoModal onClose={() => setShowVideo(false)} />}
     </section>
   );
 }
