@@ -5,6 +5,7 @@ import { Route, Switch, Router as WouterRouter } from 'wouter';
 
 import Preloader from './components/Preloader';
 import Navbar from './components/Navbar';
+import VideoLanding from './components/VideoLanding';
 import Hero from './components/Hero';
 import HeritageVision from './components/HeritagVision';
 import MasterPlan from './components/MasterPlan';
@@ -24,6 +25,7 @@ function Home() {
       <Preloader />
       <Navbar />
       <main>
+        <VideoLanding />
         <Hero />
         <HeritageVision />
         <MasterPlan />
