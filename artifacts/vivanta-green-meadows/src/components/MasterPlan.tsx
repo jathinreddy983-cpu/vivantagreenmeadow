@@ -904,7 +904,7 @@ function ThreeDPlan({ plots, onSelectPlot }: { plots: Plot[]; onSelectPlot: (plo
 
   return (
     <div ref={containerRef} className="w-full h-full relative min-h-[550px] bg-[#f8fafc] cursor-grab active:cursor-grabbing">
-      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-3.5 border border-[#c3dcbe]/50 rounded-sm shadow-md pointer-events-none text-[10px] text-forest-900 font-sans space-y-1.5 z-10">
+      <div className="absolute top-4 left-4 bg-bentley-green-50/90 backdrop-blur-md p-3.5 border border-forest-900/10 rounded-sm shadow-md pointer-events-none text-[10px] text-forest-900 font-sans space-y-1.5 z-10">
         <div className="font-bold uppercase tracking-widest text-[9px] text-gold-500 mb-1">3D Controls</div>
         <div className="flex items-center gap-1.5"><span>🖱️</span> <span>Left Click + Drag: Rotate</span></div>
         <div className="flex items-center gap-1.5"><span>🖱️</span> <span>Right Click + Drag: Pan</span></div>
@@ -919,15 +919,15 @@ function ThreeDPlan({ plots, onSelectPlot }: { plots: Plot[]; onSelectPlot: (plo
         style={{ left: 0, top: 0 }}
       >
         <div id="tooltip-title" className="text-gold-500 font-bold uppercase tracking-widest text-[9px] mb-1"></div>
-        <div className="flex justify-between gap-8 border-b border-white/10 pb-1">
+        <div className="flex justify-between gap-8 border-b border-forest-900/10 pb-1">
           <span className="text-white/60">Type:</span>
           <span id="tooltip-type" className="font-semibold uppercase"></span>
         </div>
-        <div className="flex justify-between gap-8 border-b border-white/10 pb-1">
+        <div className="flex justify-between gap-8 border-b border-forest-900/10 pb-1">
           <span className="text-white/60">Area:</span>
           <span id="tooltip-area" className="font-semibold"></span>
         </div>
-        <div className="flex justify-between gap-8 border-b border-white/10 pb-1">
+        <div className="flex justify-between gap-8 border-b border-forest-900/10 pb-1">
           <span className="text-white/60">Facing:</span>
           <span id="tooltip-facing" className="font-semibold"></span>
         </div>
@@ -1019,7 +1019,7 @@ export default function MasterPlan() {
 
         {/* View Mode Toggle */}
         <div className="flex justify-center mb-8">
-          <div className="bg-[#e2ece0] p-1.5 rounded-full border border-[#c3dcbe]/50 shadow-sm flex flex-wrap gap-1 justify-center">
+          <div className="bg-[#e2ece0] p-1.5 rounded-full border border-forest-900/10 shadow-sm flex flex-wrap gap-1 justify-center">
             <button
               onClick={() => setViewMode('Brochure')}
               className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 ${
@@ -1048,7 +1048,7 @@ export default function MasterPlan() {
         {/* Plan Area */}
         <div
           ref={fullscreenContainerRef}
-          className={`relative bg-white/70 backdrop-blur-md rounded-xl shadow-luxury-lg border border-white/50 overflow-hidden ${
+          className={`relative bg-bentley-green-50/90 backdrop-blur-md rounded-xl shadow-luxury-lg border border-forest-900/10 overflow-hidden ${
             isFullscreen ? 'fixed inset-0 z-[9999] rounded-none border-0 shadow-none' : ''
           }`}
         >
@@ -1074,7 +1074,7 @@ export default function MasterPlan() {
               {/* Fullscreen Toggle Button */}
               <button
                 onClick={toggleFullscreen}
-                className="absolute bottom-4 right-4 z-20 flex items-center gap-2 bg-forest-900/80 hover:bg-forest-900 text-white backdrop-blur-sm border border-white/20 px-3 py-2 rounded-sm text-xs font-sans font-bold uppercase tracking-wider transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="absolute bottom-4 right-4 z-20 flex items-center gap-2 bg-forest-900/80 hover:bg-forest-900 text-white backdrop-blur-sm border border-forest-900/10 px-3 py-2 rounded-sm text-xs font-sans font-bold uppercase tracking-wider transition-all duration-200 shadow-lg hover:shadow-xl"
                 title={isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
               >
                 {isFullscreen ? (
@@ -1114,7 +1114,7 @@ export default function MasterPlan() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white/80 backdrop-blur-lg p-8 max-w-md w-full shadow-luxury-2xl relative border border-white/50 rounded-2xl"
+              className="bg-bentley-green-50/90 backdrop-blur-md p-8 max-w-md w-full shadow-luxury-2xl relative border border-forest-900/10 rounded-2xl"
               onClick={e => e.stopPropagation()}
             >
               <button 

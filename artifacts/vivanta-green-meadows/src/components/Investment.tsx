@@ -74,7 +74,7 @@ export default function Investment() {
                   </div>
 
                   {/* Content */}
-                  <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] bg-white/60 backdrop-blur-md p-4 border border-white/50 shadow-luxury-sm hover:shadow-luxury-md transition-all">
+                  <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] bg-bentley-green-50/90 backdrop-blur-md p-4 border border-forest-900/10 shadow-luxury-sm hover:shadow-luxury-md transition-all">
                     <div className="flex justify-between items-start mb-2">
                       <span className="text-xs font-bold text-gold-600">{item.year}</span>
                       <span className="text-[10px] font-bold uppercase tracking-wider text-forest-700 bg-[#e8f5e4] px-2 py-0.5">{item.price}</span>
@@ -89,7 +89,7 @@ export default function Investment() {
           </div>
 
           {/* Right: Chart */}
-          <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 border border-[#c3dcbe]/50 shadow-xl">
+          <div className="bg-bentley-green-50/90 backdrop-blur-md p-6 md:p-8 border border-forest-900/10 shadow-xl">
             <div className="mb-8">
               <h3 className="font-serif text-2xl text-forest-900 mb-2">Property Appreciation Trend</h3>
               <p className="text-xs text-stone-500 uppercase tracking-widest">Hoskote vs City Average (₹/sq.ft)</p>

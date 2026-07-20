@@ -131,7 +131,7 @@ export default function Amenities() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {amenities.map((item, idx) => (
             <FadeIn key={item.title} delay={0.05 + idx * 0.06}>
-              <div className="relative group p-5 sm:p-6 bg-white/75 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-md overflow-hidden transition-all duration-500 hover:shadow-luxury-xl h-full flex flex-col gap-4">
+              <div className="relative group p-5 sm:p-6 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-md overflow-hidden transition-all duration-500 hover:shadow-luxury-xl h-full flex flex-col gap-4">
                 {/* Icon */}
                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-forest-50 text-plum-brand">
                   {item.icon}

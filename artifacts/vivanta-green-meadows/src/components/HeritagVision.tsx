@@ -76,7 +76,7 @@ export default function HeritageVision() {
 
           {/* Right: Pull Quote */}
           <FadeIn delay={0.4} direction="right">
-            <div className="relative p-8 sm:p-10 rounded-3xl bg-white/50 backdrop-blur-md border border-white/30 shadow-luxury-lg overflow-hidden">
+            <div className="relative p-8 sm:p-10 rounded-3xl bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-lg overflow-hidden">
               <div className="absolute top-0 left-8 -translate-y-1/2">
                 <div className="w-8 h-8 rounded-full border-2 border-gold-500 flex items-center justify-center bg-white">
                   <div className="w-3.5 h-3.5 rounded-full bg-gold-500" />
@@ -94,7 +94,7 @@ export default function HeritageVision() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {pillars.map((pillar, idx) => (
             <FadeIn key={pillar.title} delay={0.1 + idx * 0.1}>
-              <div className="min-h-[180px] sm:min-h-[220px] p-5 sm:p-6 bg-white/60 backdrop-blur-md border border-white/40 rounded-2xl shadow-luxury-sm flex flex-col justify-between hover:shadow-luxury-lg transition-all duration-300">
+              <div className="min-h-[180px] sm:min-h-[220px] p-5 sm:p-6 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 rounded-2xl shadow-luxury-sm flex flex-col justify-between hover:shadow-luxury-lg transition-all duration-300">
                 <div>
                   <div className="text-[10px] font-sans font-bold tracking-widest text-gold-600 uppercase mb-3">
                     {pillar.subtitle}

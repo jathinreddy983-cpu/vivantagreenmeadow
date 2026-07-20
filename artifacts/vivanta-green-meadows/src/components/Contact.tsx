@@ -50,7 +50,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               {/* Site Address & QR Code */}
-              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white/60 backdrop-blur-md border border-white/50 shadow-luxury-md items-center sm:items-start rounded-2xl">
+              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-md items-center sm:items-start rounded-2xl">
                 <div className="w-32 sm:w-40 flex-shrink-0 text-center flex flex-col items-center">
                   <p className="text-[10px] font-sans text-forest-700 mb-2 uppercase tracking-wide">Scan QR for</p>
                   <img src="/assets/uploaded_qr.png" alt="Scan QR for Location" className="w-full h-auto border-2 border-forest-900/10 p-1 mb-2 object-cover" style={{ mixBlendMode: 'multiply' }} />
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
 
               {/* Office Address */}
-              <div className="p-6 sm:p-8 bg-white/60 backdrop-blur-md border border-white/50 shadow-luxury-md flex flex-col sm:flex-row gap-6 items-center sm:items-start relative rounded-2xl">
+              <div className="p-6 sm:p-8 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-md flex flex-col sm:flex-row gap-6 items-center sm:items-start relative rounded-2xl">
                 
                 {/* Simulated Logo (Vivanta Developers) */}
                 <div className="w-32 sm:w-40 flex-shrink-0 flex items-center justify-center p-2 pt-4">
@@ -110,7 +110,7 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white/60 backdrop-blur-md p-8 md:p-10 shadow-luxury-xl border border-white/50 rounded-2xl">
+          <div className="bg-bentley-green-50/90 backdrop-blur-md p-8 md:p-10 shadow-luxury-xl border border-forest-900/10 rounded-2xl">
             {submitted ? (
               <motion.div 
                 initial={{ opacity: 0 }}

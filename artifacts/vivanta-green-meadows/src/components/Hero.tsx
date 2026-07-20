@@ -204,7 +204,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="w-full max-w-xs sm:max-w-sm lg:max-w-md"
               >
-                <div className="relative group p-3 bg-white/75 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-lg overflow-hidden transition-all duration-500 hover:shadow-luxury-xl">
+                <div className="relative group p-3 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-lg overflow-hidden transition-all duration-500 hover:shadow-luxury-xl">
                   <div className="relative overflow-hidden squircle-md aspect-square bg-forest-50">
                     <img
                       src={butterflyImg}

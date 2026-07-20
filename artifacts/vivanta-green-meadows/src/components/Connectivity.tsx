@@ -108,7 +108,7 @@ export default function Connectivity() {
                 {connectData[activeTab].map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-start justify-between gap-4 p-4 bg-white/70 backdrop-blur-sm border border-forest-900/10 squircle-md shadow-luxury-sm hover:shadow-luxury-md transition-all"
+                    className="flex items-start justify-between gap-4 p-4 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-md shadow-luxury-sm hover:shadow-luxury-md transition-all"
                   >
                     <div>
                       <span className="font-serif text-sm sm:text-base font-bold text-forest-900 block">{item.name}</span>
@@ -125,7 +125,7 @@ export default function Connectivity() {
 
           {/* Right: Map */}
           <FadeIn delay={0.3}>
-            <div className="relative p-6 sm:p-8 rounded-3xl bg-white/50 backdrop-blur-md border border-forest-900/10 shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
+            <div className="relative p-6 sm:p-8 rounded-3xl bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
               <div className="text-[10px] font-sans font-bold tracking-[0.25em] uppercase text-gold-600 mb-4">
                 Transit Corridor Maps
               </div>

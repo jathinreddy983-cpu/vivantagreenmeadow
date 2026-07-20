@@ -96,7 +96,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: idx * 0.1 }}
-            className="relative shrink-0 p-4 bg-white/80 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-md overflow-hidden w-[85vw] sm:w-[420px] flex flex-col"
+            className="relative shrink-0 p-4 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-md overflow-hidden w-[85vw] sm:w-[420px] flex flex-col"
           >
             <div className="relative overflow-hidden squircle-md aspect-video w-full">
               <img
