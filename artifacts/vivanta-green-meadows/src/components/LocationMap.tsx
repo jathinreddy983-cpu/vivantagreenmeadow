@@ -265,20 +265,20 @@ export default function LocationMap() {
 
             {/* Nearby Landmarks */}
             <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '20px' }}>
-              <p style={{ color: 'rgba(212,175,55,0.75)', fontFamily: 'sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.28em', textTransform: 'uppercase', marginBottom: 14 }}>Nearby Landmarks</p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+              <p style={{ color: 'rgba(212,175,55,0.75)', fontFamily: 'sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 14 }}>Nearby Landmarks</p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 {LANDMARKS.map((lm, i) => (
                   <motion.div
                     key={lm.label}
                     initial={{ opacity: 0, x: -12 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.5 + i * 0.07 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 10px', background: 'rgba(255,255,255,0.03)', borderRadius: 6, border: '1px solid rgba(255,255,255,0.06)' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: 8, border: '1px solid rgba(255,255,255,0.06)' }}
                   >
-                    <span style={{ fontSize: 16, flexShrink: 0 }}>{lm.icon}</span>
+                    <span style={{ fontSize: 20, flexShrink: 0 }}>{lm.icon}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ color: 'rgba(255,255,255,0.7)', fontFamily: 'sans-serif', fontSize: 10, fontWeight: 600, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lm.label}</p>
-                      <p style={{ color: lm.color, fontFamily: 'sans-serif', fontSize: 10, fontWeight: 700, marginTop: 1 }}>{lm.distance}</p>
+                      <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'sans-serif', fontSize: 12, fontWeight: 600, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lm.label}</p>
+                      <p style={{ color: lm.color, fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, marginTop: 2 }}>{lm.distance}</p>
                     </div>
                   </motion.div>
                 ))}
