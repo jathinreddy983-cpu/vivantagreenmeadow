@@ -81,12 +81,12 @@ export default function Navbar() {
           className={`mx-auto w-full px-6 py-4 rounded-full transition-all duration-500 flex items-center justify-between border ${
             scrolled
               ? 'bg-bentley-green-50/90 backdrop-blur-md border-forest-900/10 shadow-luxury-lg'
-              : 'bg-transparent border-transparent'
+              : 'bg-white/10 backdrop-blur-md border-white/20 shadow-lg'
           }`}
         >
           {/* Logo */}
           <a href="#" aria-label="Vivanta Green Meadows – Home" onMouseEnter={() => setActiveDropdown(null)}>
-            <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.3 }}>
+            <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.3 }} className={`transition-all duration-500 ${!scrolled ? 'brightness-0 invert opacity-90' : ''}`}>
               <Logo size={42} />
             </motion.div>
           </a>
@@ -99,7 +99,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('estate')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="font-sans text-[11px] uppercase tracking-[0.2em] text-forest-900 hover:text-gold-600 transition-colors focus:outline-none flex items-center gap-1 cursor-pointer">
+              <button className={`font-sans text-[11px] uppercase tracking-[0.2em] transition-colors focus:outline-none flex items-center gap-1 cursor-pointer ${scrolled ? 'text-forest-900 hover:text-gold-600' : 'text-white hover:text-white/80'}`}>
                 The Estate <span className="text-[8px] opacity-60">▼</span>
               </button>
               <AnimatePresence>
@@ -153,7 +153,7 @@ export default function Navbar() {
               onMouseEnter={() => setActiveDropdown('connectivity')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="font-sans text-[11px] uppercase tracking-[0.2em] text-forest-900 hover:text-gold-600 transition-colors focus:outline-none flex items-center gap-1 cursor-pointer">
+              <button className={`font-sans text-[11px] uppercase tracking-[0.2em] transition-colors focus:outline-none flex items-center gap-1 cursor-pointer ${scrolled ? 'text-forest-900 hover:text-gold-600' : 'text-white hover:text-white/80'}`}>
                 Connectivity <span className="text-[8px] opacity-60">▼</span>
               </button>
               <AnimatePresence>
@@ -186,10 +186,10 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <a href="#amenities" className="font-sans text-[11px] uppercase tracking-[0.2em] text-forest-900 hover:text-gold-600 transition-colors py-2 block">
+            <a href="#amenities" className={`font-sans text-[11px] uppercase tracking-[0.2em] transition-colors py-2 block ${scrolled ? 'text-forest-900 hover:text-gold-600' : 'text-white hover:text-white/80'}`}>
               Amenities
             </a>
-            <a href="#contact" className="font-sans text-[11px] uppercase tracking-[0.2em] text-forest-900 hover:text-gold-600 transition-colors py-2 block">
+            <a href="#contact" className={`font-sans text-[11px] uppercase tracking-[0.2em] transition-colors py-2 block ${scrolled ? 'text-forest-900 hover:text-gold-600' : 'text-white hover:text-white/80'}`}>
               Contact
             </a>
             <a
@@ -202,7 +202,7 @@ export default function Navbar() {
 
           {/* Mobile Toggle */}
           <button
-            className="md:hidden p-2 text-forest-900 hover:text-gold-600 focus:outline-none"
+            className={`md:hidden p-2 focus:outline-none transition-colors ${scrolled ? 'text-forest-900 hover:text-gold-600' : 'text-white'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle Navigation Drawer"
           >
