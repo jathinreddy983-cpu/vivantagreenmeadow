@@ -1048,7 +1048,7 @@ export default function MasterPlan() {
         {/* Plan Area */}
         <div
           ref={fullscreenContainerRef}
-          className={`relative bg-white rounded-sm shadow-md border border-border overflow-hidden ${
+          className={`relative bg-white/70 backdrop-blur-md rounded-xl shadow-luxury-lg border border-white/50 overflow-hidden ${
             isFullscreen ? 'fixed inset-0 z-[9999] rounded-none border-0 shadow-none' : ''
           }`}
         >
@@ -1114,7 +1114,7 @@ export default function MasterPlan() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white p-8 max-w-md w-full shadow-2xl relative"
+              className="bg-white/80 backdrop-blur-lg p-8 max-w-md w-full shadow-luxury-2xl relative border border-white/50 rounded-2xl"
               onClick={e => e.stopPropagation()}
             >
               <button 

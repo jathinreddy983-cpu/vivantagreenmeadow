@@ -41,20 +41,20 @@ export default function Investment() {
   return (
     <section className="py-24 md:py-32 bg-gradient-to-b from-[#e8f5e4] via-[#f0f8ef] to-[#f7fbf6] relative border-t border-[#c3dcbe]/40">
       <div className="container mx-auto px-6">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
+
           {/* Left: Content & Timeline */}
           <div>
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-8 bg-gold-500"></div>
               <span className="text-xs font-sans uppercase tracking-[0.2em] text-forest-700">Investment Potential</span>
             </div>
-            
+
             <h2 className="font-serif text-3xl md:text-5xl text-forest-900 mb-6">
               Hoskote — Where Smart Capital Meets Exponential ROI
             </h2>
-            
+
             <p className="text-forest-700/80 leading-relaxed text-sm md:text-base mb-8">
               Hoskote stands as the high-appreciation gateway of Bengaluru East. Meticulous road infrastructure planning, Metro link proximity, and STRR alignments make early investments highly lucrative.
             </p>
@@ -72,9 +72,9 @@ export default function Investment() {
                   <div className="flex items-center justify-center w-5 h-5 rounded-full border-2 border-gold-500 bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
                     <div className="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>
                   </div>
-                  
+
                   {/* Content */}
-                  <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] bg-white/80 p-4 border border-[#c3dcbe]/50 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] bg-white/60 backdrop-blur-md p-4 border border-white/50 shadow-luxury-sm hover:shadow-luxury-md transition-all">
                     <div className="flex justify-between items-start mb-2">
                       <span className="text-xs font-bold text-gold-600">{item.year}</span>
                       <span className="text-[10px] font-bold uppercase tracking-wider text-forest-700 bg-[#e8f5e4] px-2 py-0.5">{item.price}</span>
@@ -89,7 +89,7 @@ export default function Investment() {
           </div>
 
           {/* Right: Chart */}
-          <div className="bg-white/85 p-6 md:p-8 border border-[#c3dcbe]/50 shadow-xl backdrop-blur-sm">
+          <div className="bg-white/60 backdrop-blur-md p-6 md:p-8 border border-[#c3dcbe]/50 shadow-xl">
             <div className="mb-8">
               <h3 className="font-serif text-2xl text-forest-900 mb-2">Property Appreciation Trend</h3>
               <p className="text-xs text-stone-500 uppercase tracking-widest">Hoskote vs City Average (₹/sq.ft)</p>
@@ -103,56 +103,56 @@ export default function Investment() {
                 >
                   <defs>
                     <linearGradient id="colorHoskote" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#2d6b4f" stopOpacity={0.3}/>
-                      <stop offset="95%" stopColor="#2d6b4f" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#2d6b4f" stopOpacity={0.3} />
+                      <stop offset="95%" stopColor="#2d6b4f" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="colorSat" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#a8a29e" stopOpacity={0.1}/>
-                      <stop offset="95%" stopColor="#a8a29e" stopOpacity={0}/>
+                      <stop offset="5%" stopColor="#a8a29e" stopOpacity={0.1} />
+                      <stop offset="95%" stopColor="#a8a29e" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#c3dcbe" />
-                  <XAxis 
-                    dataKey="year" 
-                    axisLine={false} 
-                    tickLine={false} 
-                    tick={{ fill: '#78716c', fontSize: 12 }} 
+                  <XAxis
+                    dataKey="year"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: '#78716c', fontSize: 12 }}
                     dy={10}
                   />
-                  <YAxis 
-                    axisLine={false} 
-                    tickLine={false} 
+                  <YAxis
+                    axisLine={false}
+                    tickLine={false}
                     tick={{ fill: '#78716c', fontSize: 12 }}
                     domain={[1000, 8000]}
                     ticks={[2000, 4000, 6000, 8000]}
                     tickFormatter={(value) => `₹${value}`}
                   />
-                  <Tooltip 
+                  <Tooltip
                     contentStyle={{ backgroundColor: '#113222', borderColor: '#113222', color: '#fff', fontSize: '12px' }}
                     itemStyle={{ color: '#fff' }}
                   />
-                  <Area 
-                    type="monotone" 
-                    dataKey="Saturated" 
-                    stroke="#a8a29e" 
+                  <Area
+                    type="monotone"
+                    dataKey="Saturated"
+                    stroke="#a8a29e"
                     strokeWidth={2}
-                    fillOpacity={1} 
-                    fill="url(#colorSat)" 
+                    fillOpacity={1}
+                    fill="url(#colorSat)"
                     name="Saturated Areas"
                   />
-                  <Area 
-                    type="monotone" 
-                    dataKey="Hoskote" 
-                    stroke="#2d6b4f" 
+                  <Area
+                    type="monotone"
+                    dataKey="Hoskote"
+                    stroke="#2d6b4f"
                     strokeWidth={3}
-                    fillOpacity={1} 
-                    fill="url(#colorHoskote)" 
+                    fillOpacity={1}
+                    fill="url(#colorHoskote)"
                     name="Hoskote"
                   />
                 </AreaChart>
               </ResponsiveContainer>
             </div>
-            
+
             <div className="mt-6 flex items-center justify-center gap-6 text-xs text-stone-500">
               <div className="flex items-center gap-2"><div className="w-3 h-3 bg-forest-700"></div> Hoskote Growth</div>
               <div className="flex items-center gap-2"><div className="w-3 h-3 bg-stone-400"></div> Saturated Areas</div>
