@@ -12,6 +12,7 @@ import Amenities from './components/Amenities';
 import Connectivity from './components/Connectivity';
 import Investment from './components/Investment';
 import Gallery from './components/Gallery';
+import LocationMap from './components/LocationMap';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -30,6 +31,7 @@ function Home() {
         <Connectivity />
         <Investment />
         <Gallery />
+        <LocationMap />
         <Contact />
       </main>
       <Footer />

@@ -48,17 +48,64 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className="p-6 bg-white border border-border shadow-sm">
-              <h4 className="font-serif text-xl text-forest-900 mb-2">Corporate Office</h4>
-              <p className="text-sm text-forest-700/70 leading-relaxed mb-4">
-                Level 4, Prestige Tech Park, Whitefield,<br/>
-                Bengaluru, Karnataka 560066
-              </p>
-              <h4 className="font-serif text-xl text-forest-900 mb-2">Site Address</h4>
-              <p className="text-sm text-forest-700/70 leading-relaxed">
-                Vivanta Green Meadows, Near MVJ Medical College,<br/>
-                Hoskote, Bengaluru Rural 562114
-              </p>
+            <div className="space-y-6">
+              {/* Site Address & QR Code */}
+              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white border border-border shadow-sm items-center sm:items-start">
+                <div className="w-32 sm:w-40 flex-shrink-0 text-center flex flex-col items-center">
+                  <p className="text-[10px] font-sans text-forest-700 mb-2 uppercase tracking-wide">Scan QR for</p>
+                  <img src="/assets/uploaded_qr.png" alt="Scan QR for Location" className="w-full h-auto border-2 border-forest-900/10 p-1 mb-2 object-cover" style={{ mixBlendMode: 'multiply' }} />
+                  <p className="text-[11px] font-sans uppercase tracking-widest text-forest-900 font-bold">Location</p>
+                </div>
+                <div className="flex-1 text-center sm:text-left pt-2">
+                  <p className="text-sm text-forest-700 mb-1">Site Address:</p>
+                  <h4 className="font-serif text-xl sm:text-2xl text-forest-900 mb-3 font-semibold uppercase">VIVANTA GREEN MEADOWS</h4>
+                  <p className="text-base text-forest-700/90 leading-relaxed">
+                    Sy. No.184/2 &amp; 185, Kodihalli Village,<br/>
+                    Jadigenahalli Hobli, Hoskote Tq.,<br/>
+                    Bengaluru Rural District.
+                  </p>
+                </div>
+              </div>
+
+              {/* Office Address */}
+              <div className="p-6 sm:p-8 bg-white border border-border shadow-sm flex flex-col sm:flex-row gap-6 items-center sm:items-start relative">
+                
+                {/* Simulated Logo (Vivanta Developers) */}
+                <div className="w-32 sm:w-40 flex-shrink-0 flex items-center justify-center p-2 pt-4">
+                  <div className="flex flex-col items-center text-center">
+                    <p className="text-[10px] font-sans text-forest-700 mb-2">Project by:</p>
+                    <svg width="64" height="54" viewBox="0 0 100 80" fill="none" className="mb-2">
+                      <path d="M50 5 L10 35 L10 75 L90 75 L90 35 Z" fill="#e8f5e4" stroke="#2d6b4f" strokeWidth="4"/>
+                      <path d="M30 75 L30 50 L70 50 L70 75" fill="none" stroke="#2d6b4f" strokeWidth="4"/>
+                      <path d="M25 50 Q50 20 75 50" fill="none" stroke="#4ade80" strokeWidth="6"/>
+                      <rect x="40" y="25" width="8" height="8" fill="#4ade80"/>
+                      <rect x="52" y="25" width="8" height="8" fill="#4ade80"/>
+                    </svg>
+                    <div className="w-full h-px bg-forest-900/20 my-2"></div>
+                    <span className="font-serif text-[11px] font-bold text-forest-900 leading-tight uppercase tracking-wider">VIVANTA DEVELOPERS</span>
+                    <span className="font-sans text-[6px] uppercase tracking-widest text-forest-700 mt-1">Building Trust. Creating Value.</span>
+                  </div>
+                </div>
+
+                <div className="flex-1 text-center sm:text-left pt-2">
+                  <p className="text-sm text-forest-700 mb-1">Office Address:</p>
+                  <h4 className="font-serif text-xl sm:text-2xl text-forest-900 mb-3 font-semibold uppercase">VIVANTA DEVELOPERS</h4>
+                  <p className="text-sm text-forest-700/90 leading-relaxed mb-4">
+                    No.27, S.R Shloka, Flat No.501,<br/>
+                    1st Main, Puttappa Layout, Next to ICICI Bank,<br/>
+                    New Thippasandra Post, Bengaluru - 560 075
+                  </p>
+                  <p className="text-sm text-forest-900">
+                    <span className="font-semibold">E-mail:</span> info@vivantagroups.com<br/>
+                    <span className="font-semibold">Website:</span> www.vivantagroups.com
+                  </p>
+                </div>
+                
+                {/* Disclaimer line spanning bottom */}
+                <div className="absolute bottom-2 right-4">
+                  <p className="text-[9px] font-sans text-forest-700/60 text-right">This brochure is pure conceptual and not a legal offering</p>
+                </div>
+              </div>
             </div>
           </div>
 

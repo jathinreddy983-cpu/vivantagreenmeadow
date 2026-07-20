@@ -29,6 +29,8 @@ export default function Footer() {
               <li><a href="#amenities" className="text-white/70 hover:text-white text-sm transition-colors uppercase tracking-wider text-[11px]">Amenities</a></li>
               <li><a href="#connectivity" className="text-white/70 hover:text-white text-sm transition-colors uppercase tracking-wider text-[11px]">Connectivity</a></li>
               <li><a href="#gallery" className="text-white/70 hover:text-white text-sm transition-colors uppercase tracking-wider text-[11px]">Gallery</a></li>
+              <li><a href="#location" className="text-white/70 hover:text-gold-500 text-sm transition-colors uppercase tracking-wider text-[11px] flex items-center gap-1.5">📍 Location</a></li>
+
             </ul>
           </div>
 

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import gardenImg from '@assets/generated_images/landscaped-gardens.jpg';
+import CinematicFilm from './CinematicFilm';
 
-const VIDEO_URL = 'https://res.cloudinary.com/az8sjisv/video/upload/v1784484696/watch_story_vedio_nlxnbk.mp4';
+const butterflyImg = '/assets/page1_img0.jpeg';
 
 const stats = [
   { value: '95+', label: 'Premium Plots' },
@@ -35,10 +35,7 @@ function AnimatedStat({ value, label, delay }: { value: string; label: string; d
 }
 
 function VideoModal({ onClose }: { onClose: () => void }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
   useEffect(() => {
-    // Prevent body scroll while modal is open
     document.body.style.overflow = 'hidden';
     return () => { document.body.style.overflow = ''; };
   }, []);
@@ -50,45 +47,50 @@ function VideoModal({ onClose }: { onClose: () => void }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+        transition={{ duration: 0.4 }}
+        className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+        style={{ background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(12px)' }}
         onClick={onClose}
       >
         <motion.div
           key="video-modal-content"
-          initial={{ scale: 0.88, opacity: 0, y: 24 }}
+          initial={{ scale: 0.86, opacity: 0, y: 30 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.88, opacity: 0, y: 24 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-4xl bg-black rounded-xl overflow-hidden shadow-2xl border border-white/10"
+          exit={{ scale: 0.86, opacity: 0, y: 30 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full max-w-5xl bg-black overflow-hidden"
+          style={{ borderRadius: 4, boxShadow: '0 30px 80px rgba(0,0,0,0.9), 0 0 0 1px rgba(255,255,255,0.06)' }}
           onClick={e => e.stopPropagation()}
         >
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-3 right-3 z-10 flex items-center justify-center w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white backdrop-blur-sm border border-white/20 transition-all duration-200"
-            aria-label="Close video"
+            className="absolute top-3 right-3 z-[100] flex items-center justify-center w-9 h-9 rounded-full text-white transition-all duration-200"
+            style={{ background: 'rgba(0,0,0,0.65)', border: '1px solid rgba(255,255,255,0.18)', backdropFilter: 'blur(6px)' }}
+            aria-label="Close cinematic film"
           >
             <X className="w-4 h-4" />
           </button>
 
-          {/* Label */}
-          <div className="absolute top-3 left-4 z-10 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span className="text-[10px] font-sans font-bold uppercase tracking-widest text-white/80">
-              Watch Our Story
+          {/* Premium header badge */}
+          <div
+            className="absolute top-3 left-4 z-[100] flex items-center gap-2"
+            style={{ pointerEvents: 'none' }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: 'rgba(212,175,55,0.9)', boxShadow: '0 0 6px rgba(212,175,55,0.8)', display: 'block' }}
+            />
+            <span
+              className="font-sans font-bold uppercase"
+              style={{ color: 'rgba(255,255,255,0.7)', fontSize: 9, letterSpacing: '0.32em' }}
+            >
+              Vivanta Green Meadows · Cinematic Film
             </span>
           </div>
 
-          {/* Video */}
-          <video
-            ref={videoRef}
-            src={VIDEO_URL}
-            controls
-            autoPlay
-            className="w-full aspect-video bg-black"
-            style={{ display: 'block' }}
-          />
+          {/* The Cinematic Film Player */}
+          <CinematicFilm />
         </motion.div>
       </motion.div>
     </AnimatePresence>
@@ -205,8 +207,8 @@ export default function Hero() {
                 <div className="relative group p-3 bg-white/75 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-lg overflow-hidden transition-all duration-500 hover:shadow-luxury-xl">
                   <div className="relative overflow-hidden squircle-md aspect-square bg-forest-50">
                     <img
-                      src={gardenImg}
-                      alt="Luxury Landscape"
+                      src={butterflyImg}
+                      alt="Vivanta Green Meadows Butterfly"
                       className="w-full h-full object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
