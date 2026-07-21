@@ -50,14 +50,15 @@ export default function LocationMap() {
     <section
       id="location"
       ref={sectionRef}
-      style={{ background: 'linear-gradient(to bottom, #0a1f12, #081a0f)', position: 'relative', overflow: 'hidden' }}
+      style={{ position: 'relative', overflow: 'hidden' }}
+      className="border-t border-forest-900/5"
     >
       {/* Decorative top border */}
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(212,175,55,0.4), transparent)' }} />
 
       {/* Background radial glows */}
-      <div style={{ position: 'absolute', top: '20%', left: '-15%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(34,85,34,0.12) 0%, transparent 70%)', pointerEvents: 'none' }} />
-      <div style={{ position: 'absolute', bottom: '10%', right: '-10%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.07) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '20%', left: '-15%', width: 500, height: 500, borderRadius: '50%', background: 'radial-gradient(circle, rgba(34,85,34,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '10%', right: '-10%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%)', pointerEvents: 'none' }} />
 
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 24px' }}>
 
@@ -73,11 +74,11 @@ export default function LocationMap() {
             <span style={{ color: 'rgba(212,175,55,0.85)', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.35em', textTransform: 'uppercase' }}>Find Us</span>
             <div style={{ height: 1, width: 40, background: 'rgba(212,175,55,0.6)' }} />
           </div>
-          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 48px)', color: '#ffffff', fontWeight: 400, marginBottom: 12 }}>
+          <h2 style={{ fontFamily: 'Georgia, serif', fontSize: 'clamp(28px, 5vw, 48px)', color: '#113222', fontWeight: 400, marginBottom: 12 }}>
             Strategically Located,<br />
             <span style={{ color: 'rgba(212,175,55,0.9)', fontStyle: 'italic' }}>Effortlessly Connected</span>
           </h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'sans-serif', fontSize: 14, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
+          <p style={{ color: '#706b66', fontFamily: 'sans-serif', fontSize: 14, maxWidth: 520, margin: '0 auto', lineHeight: 1.7 }}>
             Vivanta Green Meadows sits at the epicentre of Bengaluru East's fastest-growing corridor — minutes from major highways, institutions, and lifestyle hubs.
           </p>
         </motion.div>
@@ -97,15 +98,16 @@ export default function LocationMap() {
           ].map((s, i) => (
             <motion.div
               key={s.label}
+              className="glass-panel"
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.3 + i * 0.1 }}
-              style={{ textAlign: 'center', padding: '20px 12px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(212,175,55,0.15)', borderRadius: 8 }}
+              style={{ textAlign: 'center', padding: '20px 12px', borderRadius: 8 }}
             >
               <p style={{ fontFamily: 'Georgia, serif', fontSize: 28, color: 'rgba(212,175,55,0.9)', marginBottom: 4, fontWeight: 400 }}>
                 <Counter to={s.value} suffix={s.suffix} />
               </p>
-              <p style={{ fontFamily: 'sans-serif', fontSize: 10, color: 'rgba(255,255,255,0.45)', letterSpacing: '0.2em', textTransform: 'uppercase' }}>{s.label}</p>
+              <p style={{ fontFamily: 'sans-serif', fontSize: 10, color: '#706b66', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 'bold' }}>{s.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -118,10 +120,11 @@ export default function LocationMap() {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ position: 'relative', borderRadius: 12, overflow: 'hidden', border: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}
+            className="glass-panel"
+            style={{ position: 'relative', borderRadius: 12, overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.1)' }}
           >
             {/* Map type toggle */}
-            <div style={{ position: 'absolute', top: 12, left: 12, zIndex: 10, display: 'flex', gap: 0, borderRadius: 6, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)' }}>
+            <div className="glass-light" style={{ position: 'absolute', top: 12, left: 12, zIndex: 10, display: 'flex', gap: 0, borderRadius: 6, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.4)' }}>
               {(['map', 'satellite'] as const).map((tab) => (
                 <button
                   key={tab}
@@ -136,8 +139,8 @@ export default function LocationMap() {
                     cursor: 'pointer',
                     border: 'none',
                     transition: 'all 0.3s',
-                    background: activeTab === tab ? 'rgba(212,175,55,0.9)' : 'rgba(0,0,0,0.55)',
-                    color: activeTab === tab ? '#000' : 'rgba(255,255,255,0.7)',
+                    background: activeTab === tab ? 'rgba(212,175,55,0.9)' : 'transparent',
+                    color: activeTab === tab ? '#000' : '#113222',
                   }}
                 >
                   {tab}
@@ -146,20 +149,20 @@ export default function LocationMap() {
             </div>
 
             {/* Pin badge */}
-            <div style={{ position: 'absolute', top: 12, right: 12, zIndex: 10, display: 'flex', alignItems: 'center', gap: 8, padding: '8px 14px', background: 'rgba(0,0,0,0.7)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 6, backdropFilter: 'blur(8px)' }}>
+            <div className="glass-light" style={{ position: 'absolute', top: 12, right: 12, zIndex: 10, display: 'flex', alignItems: 'center', gap: 8, padding: '8px 14px', border: '1px solid rgba(212,175,55,0.3)', borderRadius: 6 }}>
               <span style={{ fontSize: 14 }}>📍</span>
               <div>
-                <p style={{ color: '#fff', fontFamily: 'sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', lineHeight: 1 }}>VIVANTA GREEN MEADOWS</p>
-                <p style={{ color: 'rgba(255,255,255,0.5)', fontFamily: 'sans-serif', fontSize: 9, letterSpacing: '0.08em', marginTop: 2 }}>Hoskote, Bengaluru East</p>
+                <p style={{ color: '#113222', fontFamily: 'sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', lineHeight: 1 }}>VIVANTA GREEN MEADOWS</p>
+                <p style={{ color: '#706b66', fontFamily: 'sans-serif', fontSize: 9, letterSpacing: '0.08em', marginTop: 2 }}>Hoskote, Bengaluru East</p>
               </div>
             </div>
 
             {/* Loading shimmer */}
             {!mapLoaded && (
-              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #0d2b18, #142e1a)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}>
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #e8f5e8, #f4faf4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid rgba(212,175,55,0.3)', borderTopColor: 'rgba(212,175,55,0.9)', animation: 'spin 1s linear infinite', margin: '0 auto 12px' }} />
-                  <p style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'sans-serif', fontSize: 11, letterSpacing: '0.2em' }}>LOADING MAP</p>
+                  <p style={{ color: '#706b66', fontFamily: 'sans-serif', fontSize: 11, letterSpacing: '0.2em' }}>LOADING MAP</p>
                 </div>
               </div>
             )}
@@ -172,7 +175,7 @@ export default function LocationMap() {
                 : MAPS_EMBED}
               width="100%"
               height="480"
-              style={{ border: 0, display: 'block', filter: 'hue-rotate(0deg) saturate(1.1) brightness(0.95)' }}
+              style={{ border: 0, display: 'block', filter: activeTab === 'satellite' ? 'hue-rotate(0deg) saturate(1.1) brightness(0.95)' : 'none' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -180,7 +183,7 @@ export default function LocationMap() {
             />
 
             {/* Bottom gradient fade */}
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 40, background: 'linear-gradient(to top, rgba(10,31,18,0.5), transparent)', pointerEvents: 'none' }} />
+            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 40, background: 'linear-gradient(to top, rgba(250,249,246,0.9), transparent)', pointerEvents: 'none' }} />
           </motion.div>
 
           {/* Info card + landmarks */}
@@ -191,17 +194,17 @@ export default function LocationMap() {
             style={{ display: 'flex', flexDirection: 'column', gap: 24, transform: 'scale(1.15)', transformOrigin: 'top left', width: '85%' }}
           >
             {/* Address card */}
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(212,175,55,0.18)', borderRadius: 10, padding: '32px 28px' }}>
+            <div className="glass-panel" style={{ borderRadius: 10, padding: '32px 28px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
                 <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                   <span style={{ fontSize: 22 }}>📍</span>
                 </div>
                 <div>
                   <p style={{ color: 'rgba(212,175,55,0.9)', fontFamily: 'sans-serif', fontSize: 16, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>Project Address</p>
-                  <p style={{ color: '#ffffff', fontFamily: 'Georgia, serif', fontSize: 32, marginTop: 6 }}>Vivanta Green Meadows</p>
+                  <p style={{ color: '#113222', fontFamily: 'Georgia, serif', fontSize: 32, marginTop: 6 }}>Vivanta Green Meadows</p>
                 </div>
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: 20, lineHeight: 1.7, borderLeft: '2px solid rgba(212,175,55,0.3)', paddingLeft: 20 }}>
+              <p style={{ color: '#706b66', fontFamily: 'sans-serif', fontSize: 20, lineHeight: 1.7, borderLeft: '2px solid rgba(212,175,55,0.3)', paddingLeft: 20 }}>
                 Near MVJ Medical College, Kodihalli,<br />
                 Hoskote, Bengaluru Rural<br />
                 Karnataka — 562114
@@ -232,7 +235,7 @@ export default function LocationMap() {
                 href={DIRECTIONS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ flex: 1, minWidth: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '20px 28px', background: 'transparent', color: 'rgba(212,175,55,0.85)', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 8, border: '1px solid rgba(212,175,55,0.4)', transition: 'all 0.25s', cursor: 'pointer' }}
+                style={{ flex: 1, minWidth: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '20px 28px', background: 'transparent', color: 'rgba(212,175,55,0.9)', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 8, border: '1px solid rgba(212,175,55,0.4)', transition: 'all 0.25s', cursor: 'pointer' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.7)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)'; }}
               >
@@ -245,6 +248,7 @@ export default function LocationMap() {
 
             {/* Share Location */}
             <button
+              className="glass-panel"
               onClick={() => {
                 if (navigator.share) {
                   navigator.share({ title: 'Vivanta Green Meadows', url: 'https://maps.app.goo.gl/RNc4SmM8NaYrD278A' });
@@ -253,9 +257,9 @@ export default function LocationMap() {
                   alert('Map link copied!');
                 }
               }}
-              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '18px 24px', background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: 16, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, cursor: 'pointer', transition: 'all 0.25s' }}
-              onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.08)'}
-              onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.04)'}
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '18px 24px', color: '#113222', fontFamily: 'sans-serif', fontSize: 16, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', borderRadius: 8, cursor: 'pointer', transition: 'all 0.25s' }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.7)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.4)'}
             >
               <svg viewBox="0 0 24 24" style={{ width: 16, height: 16, fill: 'currentColor' }}>
                 <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
@@ -264,21 +268,22 @@ export default function LocationMap() {
             </button>
 
             {/* Nearby Landmarks */}
-            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '28px' }}>
-              <p style={{ color: 'rgba(212,175,55,0.75)', fontFamily: 'sans-serif', fontSize: 18, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 20 }}>Nearby Landmarks</p>
+            <div className="glass-panel" style={{ borderRadius: 12, padding: '28px' }}>
+              <p style={{ color: 'rgba(212,175,55,0.9)', fontFamily: 'sans-serif', fontSize: 18, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 20 }}>Nearby Landmarks</p>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                 {LANDMARKS.map((lm, i) => (
                   <motion.div
                     key={lm.label}
+                    className="glass-light"
                     initial={{ opacity: 0, x: -12 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.5 + i * 0.07 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px', borderRadius: 10, border: '1px solid rgba(255,255,255,0.6)' }}
                   >
                     <span style={{ fontSize: 26, flexShrink: 0 }}>{lm.icon}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 600, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lm.label}</p>
-                      <p style={{ color: lm.color, fontFamily: 'sans-serif', fontSize: 15, fontWeight: 700, marginTop: 6 }}>{lm.distance}</p>
+                      <p style={{ color: '#113222', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 600, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lm.label}</p>
+                      <p style={{ color: lm.color, fontFamily: 'sans-serif', fontSize: 15, fontWeight: 700, marginTop: 6, textShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>{lm.distance}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -294,8 +299,8 @@ export default function LocationMap() {
           transition={{ delay: 0.9 }}
           style={{ marginTop: 40, textAlign: 'center' }}
         >
-          <p style={{ color: 'rgba(255,255,255,0.25)', fontFamily: 'sans-serif', fontSize: 11, letterSpacing: '0.15em' }}>
-            Plus Code: <span style={{ color: 'rgba(255,255,255,0.45)' }}>2RC2+GVM</span> · Kodihalli, Hoskote, Karnataka
+          <p style={{ color: '#706b66', fontFamily: 'sans-serif', fontSize: 11, letterSpacing: '0.15em', fontWeight: 'bold' }}>
+            Plus Code: <span style={{ color: '#113222' }}>2RC2+GVM</span> · Kodihalli, Hoskote, Karnataka
           </p>
         </motion.div>
       </div>

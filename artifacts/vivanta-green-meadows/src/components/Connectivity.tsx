@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Html, OrbitControls, Line, Sphere, Cylinder } from '@react-three/drei';
+import * as THREE from 'three';
 const tabs = ['Arterial Connectivity', 'Metro & Rail', 'Airport Access'];
 
 const connectData: Record<string, { name: string; time: string; desc: string }[]> = {
@@ -46,13 +48,90 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
+function TransitMap3D() {
+  const routes = useMemo(() => {
+    const origin = mapHubs.find(h => h.primary)!;
+    const ox = origin.x - 50;
+    const oy = origin.y - 50;
+    
+    return mapHubs.filter(h => !h.primary).map(h => {
+      const hx = h.x - 50;
+      const hy = h.y - 50;
+      // Define points for a curved line or a direct dashed line
+      return {
+        points: [[ox, 0.5, oy], [hx, 0.5, hy]] as [number, number, number][],
+        color: h.label.includes('Metro') ? '#2d6b4f' : '#c5a880',
+        dashed: true
+      };
+    });
+  }, []);
+
+  return (
+    <>
+      <ambientLight intensity={0.6} />
+      <directionalLight position={[10, 20, 15]} intensity={1.5} castShadow shadow-mapSize={[1024, 1024]} />
+      
+      {/* 3D Ground Plane */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow position={[0, 0, 0]}>
+        <planeGeometry args={[100, 100]} />
+        <meshStandardMaterial color="#f4faf4" />
+      </mesh>
+      
+      {/* Grid overlay for aesthetic */}
+      <gridHelper args={[100, 20, '#2d6b4f', '#2d6b4f']} position={[0, 0.05, 0]} material-opacity={0.08} material-transparent />
+
+      {/* Routes */}
+      {routes.map((r, i) => (
+        <Line key={`route-${i}`} points={r.points} color={r.color} lineWidth={2.5} dashed dashScale={20} dashSize={1} dashOffset={-i * 0.5} />
+      ))}
+
+      {/* Map Hubs */}
+      {mapHubs.map((hub, i) => {
+        const x = hub.x - 50;
+        const z = hub.y - 50;
+        const isPrimary = hub.primary;
+        return (
+          <group key={i} position={[x, 0, z]}>
+            <mesh position={[0, isPrimary ? 1.5 : 0.75, 0]} castShadow>
+              {isPrimary ? (
+                <cylinderGeometry args={[1.5, 1.5, 3, 32]} />
+              ) : (
+                <sphereGeometry args={[1.2, 32, 32]} />
+              )}
+              <meshStandardMaterial color={isPrimary ? '#2d6b4f' : '#c5a880'} metalness={0.2} roughness={0.5} />
+            </mesh>
+            
+            {/* Label */}
+            <Html position={[0, isPrimary ? 4 : 2.5, 0]} center zIndexRange={[100, 0]}>
+              <div className="bg-white/95 px-2 py-1 rounded shadow-lg text-forest-900 border border-stone-200 whitespace-nowrap text-[10px] font-bold font-sans select-none pointer-events-none">
+                {hub.label}
+              </div>
+            </Html>
+          </group>
+        );
+      })}
+      
+      {/* Restrict camera angles */}
+      <OrbitControls 
+        makeDefault
+        enableZoom={false} 
+        enablePan={false}
+        maxPolarAngle={Math.PI / 2 - 0.15} 
+        minPolarAngle={Math.PI / 4} 
+        minAzimuthAngle={-Math.PI / 4}
+        maxAzimuthAngle={Math.PI / 4}
+      />
+    </>
+  );
+}
+
 export default function Connectivity() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   return (
     <section
       id="connectivity"
-      className="relative py-16 sm:py-20 lg:py-28 text-forest-900 overflow-hidden bg-white border-t border-forest-900/5"
+      className="relative py-16 sm:py-20 lg:py-28 text-forest-900 overflow-hidden border-t border-forest-900/5"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
@@ -107,7 +186,7 @@ export default function Connectivity() {
                 {connectData[activeTab].map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-center justify-between gap-4 p-5 sm:p-6 bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] squircle-md shadow-luxury-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-plum-brand"
+                    className="flex items-center justify-between gap-4 p-5 sm:p-6 glass-panel border-t-[3px] border-t-vibrant-green squircle-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-t-plum-brand"
                   >
                     <div>
                       <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-forest-900 block leading-tight">{item.name}</span>
@@ -124,38 +203,18 @@ export default function Connectivity() {
 
           {/* Right: Map */}
           <FadeIn delay={0.3}>
-            <div className="relative p-6 sm:p-8 rounded-3xl bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
+            <div className="relative p-6 sm:p-8 rounded-3xl glass-panel shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
               <div className="text-xs md:text-sm font-sans font-bold tracking-[0.25em] uppercase text-gold-600 mb-4">
                 Transit Corridor Maps
               </div>
-              {/* SVG Map */}
-              <div className="relative flex-grow my-4 border border-stone-200/30 rounded-xl overflow-hidden bg-stone-50/50 p-4 flex flex-col justify-center">
-                <style>{`@keyframes dash{to{stroke-dashoffset:-40px}}`}</style>
-                <svg viewBox="0 0 100 80" className="w-full h-full" style={{ maxHeight: 220 }}>
-                  {/* Dashed route lines */}
-                  <line x1="50" y1="50" x2="25" y2="30" stroke="#c5a880" strokeWidth="0.8" strokeDasharray="4 2"
-                    style={{ animation: 'dash 1.5s linear infinite' }} />
-                  <line x1="50" y1="50" x2="20" y2="15" stroke="#c5a880" strokeWidth="0.8" strokeDasharray="4 2"
-                    style={{ animation: 'dash 2s linear infinite' }} />
-                  <line x1="50" y1="50" x2="35" y2="42" stroke="#2d6b4f" strokeWidth="0.8" strokeDasharray="3 2"
-                    style={{ animation: 'dash 1.2s linear infinite' }} />
-                  {mapHubs.map((hub, i) => (
-                    <g key={i}>
-                      <circle cx={hub.x} cy={hub.y} r={hub.primary ? 4 : 2.5}
-                        fill={hub.primary ? '#2d6b4f' : '#c5a880'} opacity={0.9} />
-                      {hub.primary && <circle cx={hub.x} cy={hub.y} r={7} fill="none" stroke="#2d6b4f" strokeWidth="0.8" opacity={0.3} />}
-                      <text x={hub.x + (hub.x > 50 ? -2 : 6)} y={hub.y - 3.5}
-                        fontSize="4" fill="#113222" fontFamily="Georgia, serif"
-                        textAnchor={hub.x > 50 ? 'end' : 'start'}
-                      >
-                        {hub.label}
-                      </text>
-                    </g>
-                  ))}
-                </svg>
+              {/* 3D WebGL Canvas Map */}
+              <div className="relative flex-grow my-4 rounded-xl overflow-hidden glass-light flex flex-col justify-center items-center w-full shadow-inner border border-stone-200/50 cursor-grab active:cursor-grabbing">
+                <Canvas shadows camera={{ position: [0, 45, 55], fov: 40 }} className="w-full h-full min-h-[250px]">
+                  <TransitMap3D />
+                </Canvas>
               </div>
-              <p className="text-[10px] font-sans text-stone-400 text-center">
-                Hover on travel cards or map hubs to visualize transit routes
+              <p className="text-[10px] font-sans text-stone-400 text-center mt-2">
+                Drag to explore the 3D map • Hover over cards for details
               </p>
             </div>
           </FadeIn>

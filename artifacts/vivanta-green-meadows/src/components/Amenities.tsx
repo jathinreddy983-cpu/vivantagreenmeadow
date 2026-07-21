@@ -97,7 +97,7 @@ export default function Amenities() {
   return (
     <section
       id="amenities"
-      className="relative py-16 sm:py-20 lg:py-28 text-stone-900 overflow-hidden bg-[#eef8ef] border-t border-forest-900/5"
+      className="relative py-16 sm:py-20 lg:py-28 text-stone-900 overflow-hidden border-t border-forest-900/5"
     >
       {/* Decorative Leaves */}
       <Leaf strokeWidth={0.5} className="absolute -top-20 -right-20 w-[600px] h-[600px] text-forest-900/[0.02] -rotate-12 pointer-events-none" />
@@ -141,7 +141,7 @@ export default function Amenities() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {amenities.map((item, idx) => (
             <FadeIn key={item.title} delay={0.05 + idx * 0.06}>
-              <div className="relative group p-5 sm:p-6 bg-white backdrop-blur-md border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] squircle-lg shadow-luxury-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] hover:border-plum-brand h-full flex flex-col gap-4 z-10 hover:z-20">
+              <div className="relative group p-5 sm:p-6 glass-panel border-t-[3px] border-t-vibrant-green squircle-lg flex flex-col gap-4 z-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] hover:border-t-plum-brand hover:z-20 h-full">
                 {/* Icon */}
                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-forest-50 text-plum-brand">
                   {item.icon}

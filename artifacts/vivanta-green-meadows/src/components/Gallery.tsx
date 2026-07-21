@@ -43,7 +43,6 @@ export default function Gallery() {
     <section
       id="gallery"
       className="relative py-16 sm:py-20 lg:py-24 text-forest-900 overflow-hidden border-t border-forest-900/5"
-      style={{ background: 'linear-gradient(to bottom, #d8efd4, #e8f5e4, #f0f8ef)' }}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-10 sm:mb-14">
@@ -64,7 +63,7 @@ export default function Gallery() {
             <div className="flex gap-3">
               <button
                 onClick={() => handleScroll('left')}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-forest-900/20 flex items-center justify-center bg-white/60 hover:bg-white transition-colors text-forest-900"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center hover:bg-white/40 transition-colors text-forest-900"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
@@ -72,7 +71,7 @@ export default function Gallery() {
               </button>
               <button
                 onClick={() => handleScroll('right')}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-forest-900/20 flex items-center justify-center bg-white/60 hover:bg-white transition-colors text-forest-900"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-panel flex items-center justify-center hover:bg-white/40 transition-colors text-forest-900"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
@@ -96,7 +95,7 @@ export default function Gallery() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: idx * 0.1 }}
-            className="relative shrink-0 p-4 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-md overflow-hidden w-[85vw] sm:w-[420px] flex flex-col"
+            className="relative shrink-0 p-4 glass-panel squircle-lg shadow-luxury-md overflow-hidden w-[85vw] sm:w-[420px] flex flex-col"
           >
             <div className="relative overflow-hidden squircle-md aspect-video w-full">
               <img
