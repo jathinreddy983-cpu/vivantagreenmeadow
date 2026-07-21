@@ -10,7 +10,7 @@ export default function VideoLanding() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-80"
-        src="https://res.cloudinary.com/az8sjisv/video/upload/v1784561169/Create_an_ultra_photorealistic_x8vori.mp4"
+        src="https://res.cloudinary.com/az8sjisv/video/upload/v1784639276/Create_an_ultra_photorealistic_-_Trim_vedio_xwc3dy.mp4"
       />
       
       {/* Dark overlay gradient for better text readability and cinematic feel */}
