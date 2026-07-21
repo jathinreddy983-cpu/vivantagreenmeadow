@@ -188,42 +188,42 @@ export default function LocationMap() {
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.4 }}
-            style={{ display: 'flex', flexDirection: 'column', gap: 20 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: 24, transform: 'scale(1.15)', transformOrigin: 'top left', width: '85%' }}
           >
             {/* Address card */}
-            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(212,175,55,0.18)', borderRadius: 10, padding: '24px 20px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
-                <div style={{ width: 36, height: 36, borderRadius: '50%', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <span style={{ fontSize: 16 }}>📍</span>
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(212,175,55,0.18)', borderRadius: 10, padding: '32px 28px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 20 }}>
+                <div style={{ width: 48, height: 48, borderRadius: '50%', background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <span style={{ fontSize: 22 }}>📍</span>
                 </div>
                 <div>
-                  <p style={{ color: 'rgba(212,175,55,0.9)', fontFamily: 'sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>Project Address</p>
-                  <p style={{ color: '#ffffff', fontFamily: 'Georgia, serif', fontSize: 15, marginTop: 2 }}>Vivanta Green Meadows</p>
+                  <p style={{ color: 'rgba(212,175,55,0.9)', fontFamily: 'sans-serif', fontSize: 16, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase' }}>Project Address</p>
+                  <p style={{ color: '#ffffff', fontFamily: 'Georgia, serif', fontSize: 32, marginTop: 6 }}>Vivanta Green Meadows</p>
                 </div>
               </div>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: 13, lineHeight: 1.7, borderLeft: '2px solid rgba(212,175,55,0.3)', paddingLeft: 12 }}>
+              <p style={{ color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: 20, lineHeight: 1.7, borderLeft: '2px solid rgba(212,175,55,0.3)', paddingLeft: 20 }}>
                 Near MVJ Medical College, Kodihalli,<br />
                 Hoskote, Bengaluru Rural<br />
                 Karnataka — 562114
               </p>
-              <div style={{ marginTop: 16, display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+              <div style={{ marginTop: 24, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {['BMRDA STRR', 'RERA Reg.', 'A & E Khata'].map(b => (
-                  <span key={b} style={{ padding: '3px 8px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.25)', borderRadius: 4, color: 'rgba(212,175,55,0.8)', fontSize: 9, fontFamily: 'sans-serif', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{b}</span>
+                  <span key={b} style={{ padding: '6px 14px', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.25)', borderRadius: 6, color: 'rgba(212,175,55,0.8)', fontSize: 15, fontFamily: 'sans-serif', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase' }}>{b}</span>
                 ))}
               </div>
             </div>
 
             {/* CTA buttons */}
-            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
               <a
                 href={MAPS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ flex: 1, minWidth: 140, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '13px 20px', background: 'rgba(212,175,55,0.9)', color: '#000', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 6, transition: 'all 0.25s', border: 'none', cursor: 'pointer' }}
+                style={{ flex: 1, minWidth: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '20px 28px', background: 'rgba(212,175,55,0.9)', color: '#000', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 8, transition: 'all 0.25s', border: 'none', cursor: 'pointer' }}
                 onMouseEnter={e => (e.currentTarget.style.background = 'rgba(212,175,55,1)')}
                 onMouseLeave={e => (e.currentTarget.style.background = 'rgba(212,175,55,0.9)')}
               >
-                <svg viewBox="0 0 24 24" style={{ width: 14, height: 14, fill: 'currentColor' }}>
+                <svg viewBox="0 0 24 24" style={{ width: 18, height: 18, fill: 'currentColor' }}>
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                 </svg>
                 View on Maps
@@ -232,11 +232,11 @@ export default function LocationMap() {
                 href={DIRECTIONS_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ flex: 1, minWidth: 140, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '13px 20px', background: 'transparent', color: 'rgba(212,175,55,0.85)', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 6, border: '1px solid rgba(212,175,55,0.4)', transition: 'all 0.25s', cursor: 'pointer' }}
+                style={{ flex: 1, minWidth: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '20px 28px', background: 'transparent', color: 'rgba(212,175,55,0.85)', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', borderRadius: 8, border: '1px solid rgba(212,175,55,0.4)', transition: 'all 0.25s', cursor: 'pointer' }}
                 onMouseEnter={e => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.7)'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.4)'; }}
               >
-                <svg viewBox="0 0 24 24" style={{ width: 14, height: 14, fill: 'currentColor' }}>
+                <svg viewBox="0 0 24 24" style={{ width: 18, height: 18, fill: 'currentColor' }}>
                   <path d="M21.71 11.29l-9-9a1 1 0 00-1.42 0l-9 9a1 1 0 000 1.42l9 9a1 1 0 001.42 0l9-9a1 1 0 000-1.42zM14 14.5V12h-4v3H8v-4a1 1 0 011-1h5V7.5l3.5 3.5-3.5 3.5z" />
                 </svg>
                 Get Directions
@@ -253,32 +253,32 @@ export default function LocationMap() {
                   alert('Map link copied!');
                 }
               }}
-              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: '11px 20px', background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: 10, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 6, cursor: 'pointer', transition: 'all 0.25s' }}
+              style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, padding: '18px 24px', background: 'rgba(255,255,255,0.04)', color: 'rgba(255,255,255,0.55)', fontFamily: 'sans-serif', fontSize: 16, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, cursor: 'pointer', transition: 'all 0.25s' }}
               onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.08)'}
               onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.04)'}
             >
-              <svg viewBox="0 0 24 24" style={{ width: 13, height: 13, fill: 'currentColor' }}>
+              <svg viewBox="0 0 24 24" style={{ width: 16, height: 16, fill: 'currentColor' }}>
                 <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
               </svg>
               Share Location
             </button>
 
             {/* Nearby Landmarks */}
-            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '20px' }}>
-              <p style={{ color: 'rgba(212,175,55,0.75)', fontFamily: 'sans-serif', fontSize: 12, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 14 }}>Nearby Landmarks</p>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, padding: '28px' }}>
+              <p style={{ color: 'rgba(212,175,55,0.75)', fontFamily: 'sans-serif', fontSize: 18, fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: 20 }}>Nearby Landmarks</p>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14 }}>
                 {LANDMARKS.map((lm, i) => (
                   <motion.div
                     key={lm.label}
                     initial={{ opacity: 0, x: -12 }}
                     animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.5 + i * 0.07 }}
-                    style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: 8, border: '1px solid rgba(255,255,255,0.06)' }}
+                    style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '16px 20px', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)' }}
                   >
-                    <span style={{ fontSize: 20, flexShrink: 0 }}>{lm.icon}</span>
+                    <span style={{ fontSize: 26, flexShrink: 0 }}>{lm.icon}</span>
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'sans-serif', fontSize: 12, fontWeight: 600, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lm.label}</p>
-                      <p style={{ color: lm.color, fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, marginTop: 2 }}>{lm.distance}</p>
+                      <p style={{ color: 'rgba(255,255,255,0.85)', fontFamily: 'sans-serif', fontSize: 17, fontWeight: 600, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{lm.label}</p>
+                      <p style={{ color: lm.color, fontFamily: 'sans-serif', fontSize: 15, fontWeight: 700, marginTop: 6 }}>{lm.distance}</p>
                     </div>
                   </motion.div>
                 ))}

@@ -52,25 +52,24 @@ export default function Connectivity() {
   return (
     <section
       id="connectivity"
-      className="relative py-16 sm:py-20 lg:py-28 text-forest-900 overflow-hidden border-t border-forest-900/5"
-      style={{ background: 'linear-gradient(to bottom, #e8f5e4, #f0f8ef, #f7fbf6)' }}
+      className="relative py-16 sm:py-20 lg:py-28 text-forest-900 overflow-hidden bg-white border-t border-forest-900/5"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-12 sm:mb-16 lg:mb-20 text-center mx-auto">
           <FadeIn delay={0.1}>
-            <span className="text-[10px] font-sans font-bold tracking-[0.3em] uppercase text-plum-brand">
+            <span className="text-xs md:text-sm font-sans font-bold tracking-[0.3em] uppercase text-plum-brand">
               Proximity Highlights
             </span>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <h2 className="mt-4 font-serif text-3xl sm:text-4xl md:text-5xl tracking-tight leading-tight text-forest-900">
-              A Symphony of{' '}
+            <h2 className="mt-4 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight leading-tight text-forest-900">
+              A Symphony of<br className="hidden sm:block" />{' '}
               <span className="italic font-normal text-plum-brand">Great Connectivity</span>
             </h2>
           </FadeIn>
           <FadeIn delay={0.3}>
-            <p className="mt-6 font-sans text-sm md:text-base text-stone-650 leading-relaxed">
+            <p className="mt-6 font-sans text-base md:text-lg lg:text-xl text-stone-650 leading-relaxed max-w-2xl mx-auto">
               Perfectly positioned between the tranquil beauty of nature and the vibrant utility hubs of East Bengaluru.
             </p>
           </FadeIn>
@@ -80,12 +79,12 @@ export default function Connectivity() {
           {/* Left: Tabs */}
           <div>
             {/* Tab buttons */}
-            <div className="flex flex-wrap gap-2 mb-8 border-b border-stone-200 pb-4">
+            <div className="flex flex-wrap gap-3 mb-8 border-b border-stone-200 pb-5">
               {tabs.map(tab => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`text-[10px] sm:text-xs font-sans uppercase tracking-wider font-bold px-4 py-2 squircle-sm transition-all ${
+                  className={`text-xs md:text-sm font-sans uppercase tracking-wider font-bold px-5 py-2.5 squircle-sm transition-all ${
                     activeTab === tab
                       ? 'bg-forest-900 text-white shadow-luxury-sm'
                       : 'text-forest-700 hover:bg-white/80 border border-forest-900/10'
@@ -108,13 +107,13 @@ export default function Connectivity() {
                 {connectData[activeTab].map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-start justify-between gap-4 p-4 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-md shadow-luxury-sm hover:shadow-luxury-md transition-all"
+                    className="flex items-center justify-between gap-4 p-5 sm:p-6 bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] squircle-md shadow-luxury-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-plum-brand"
                   >
                     <div>
-                      <span className="font-serif text-sm sm:text-base font-bold text-forest-900 block">{item.name}</span>
-                      <span className="font-sans text-xs text-stone-500 block mt-0.5">{item.desc}</span>
+                      <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-forest-900 block leading-tight">{item.name}</span>
+                      <span className="font-sans text-xs md:text-sm text-stone-600 block mt-1.5">{item.desc}</span>
                     </div>
-                    <span className="font-sans text-xs font-bold text-gold-600 shrink-0 bg-gold-500/10 px-2.5 py-1 squircle-sm whitespace-nowrap">
+                    <span className="font-sans text-sm md:text-base font-bold text-gold-600 shrink-0 bg-gold-500/10 px-3 py-1.5 squircle-sm whitespace-nowrap">
                       {item.time}
                     </span>
                   </div>
@@ -125,8 +124,8 @@ export default function Connectivity() {
 
           {/* Right: Map */}
           <FadeIn delay={0.3}>
-            <div className="relative p-6 sm:p-8 rounded-3xl bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
-              <div className="text-[10px] font-sans font-bold tracking-[0.25em] uppercase text-gold-600 mb-4">
+            <div className="relative p-6 sm:p-8 rounded-3xl bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
+              <div className="text-xs md:text-sm font-sans font-bold tracking-[0.25em] uppercase text-gold-600 mb-4">
                 Transit Corridor Maps
               </div>
               {/* SVG Map */}

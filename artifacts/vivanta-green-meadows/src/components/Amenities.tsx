@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Leaf } from 'lucide-react';
 
 const amenities = [
   {
@@ -86,7 +87,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
     return () => obs.disconnect();
   }, []);
   return (
-    <motion.div ref={ref} initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6, delay }}>
+    <motion.div ref={ref} initial={{ opacity: 0, y: 20 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay }}>
       {children}
     </motion.div>
   );
@@ -96,13 +97,22 @@ export default function Amenities() {
   return (
     <section
       id="amenities"
-      className="relative py-16 sm:py-20 lg:py-28 text-stone-900 overflow-hidden border-t border-forest-900/5"
-      style={{ background: 'rgba(240,248,239,0.3)' }}
+      className="relative py-16 sm:py-20 lg:py-28 text-stone-900 overflow-hidden bg-[#eef8ef] border-t border-forest-900/5"
     >
+      {/* Decorative Leaves */}
+      <Leaf strokeWidth={0.5} className="absolute -top-20 -right-20 w-[600px] h-[600px] text-forest-900/[0.02] -rotate-12 pointer-events-none" />
+      <Leaf strokeWidth={0.5} className="absolute top-1/2 -left-40 w-[500px] h-[500px] text-forest-900/[0.02] rotate-45 pointer-events-none" />
+
       {/* Blobs */}
-      <div className="absolute top-1/4 left-0 w-[30vw] h-[30vw] rounded-full pointer-events-none"
+      <motion.div 
+        animate={{ y: [0, 20, 0], scale: [1, 1.05, 1] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/4 left-0 w-[30vw] h-[30vw] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(17,50,34,0.05) 0%, transparent 70%)' }} />
-      <div className="absolute bottom-1/4 right-0 w-[40vw] h-[40vw] rounded-full pointer-events-none"
+      <motion.div 
+        animate={{ y: [0, -30, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-1/4 right-0 w-[40vw] h-[40vw] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(45,107,79,0.05) 0%, transparent 70%)' }} />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -131,7 +141,7 @@ export default function Amenities() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {amenities.map((item, idx) => (
             <FadeIn key={item.title} delay={0.05 + idx * 0.06}>
-              <div className="relative group p-5 sm:p-6 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 squircle-lg shadow-luxury-md overflow-hidden transition-all duration-500 hover:shadow-luxury-xl h-full flex flex-col gap-4">
+              <div className="relative group p-5 sm:p-6 bg-white backdrop-blur-md border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] squircle-lg shadow-luxury-md overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 hover:scale-[1.03] hover:border-plum-brand h-full flex flex-col gap-4 z-10 hover:z-20">
                 {/* Icon */}
                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-forest-50 text-plum-brand">
                   {item.icon}

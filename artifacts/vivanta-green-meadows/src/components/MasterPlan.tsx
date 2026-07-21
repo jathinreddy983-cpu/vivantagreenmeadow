@@ -943,7 +943,7 @@ function ThreeDPlan({ plots, onSelectPlot }: { plots: Plot[]; onSelectPlot: (plo
 
 export default function MasterPlan() {
   const [selectedPlot, setSelectedPlot] = useState<Plot | null>(null);
-  const [viewMode, setViewMode] = useState<'Brochure' | '3D'>('Brochure');
+  const [viewMode, setViewMode] = useState<'Brochure' | '3D'>('3D');
   const [isFullscreen, setIsFullscreen] = useState(false);
   const fullscreenContainerRef = useRef<HTMLDivElement>(null);
 
@@ -997,7 +997,7 @@ export default function MasterPlan() {
   };
 
   return (
-    <section id="master-plan" className="py-24 md:py-32 bg-gradient-to-b from-[#f7fbf6] via-[#f0f8ef] to-[#e8f5e4] relative border-t border-[#c3dcbe]/40">
+    <section id="master-plan" className="py-24 md:py-32 bg-white relative border-t border-[#c3dcbe]/40">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -1021,17 +1021,6 @@ export default function MasterPlan() {
         <div className="flex justify-center mb-8">
           <div className="bg-[#e2ece0] p-1.5 rounded-full border border-forest-900/10 shadow-sm flex flex-wrap gap-1 justify-center">
             <button
-              onClick={() => setViewMode('Brochure')}
-              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 ${
-                viewMode === 'Brochure'
-                  ? 'bg-forest-900 text-white shadow-md'
-                  : 'text-forest-700 hover:text-forest-900'
-              }`}
-            >
-              <FileText className="w-3.5 h-3.5" />
-              Layout Plan Brochure
-            </button>
-            <button
               onClick={() => setViewMode('3D')}
               className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 ${
                 viewMode === '3D'
@@ -1042,13 +1031,24 @@ export default function MasterPlan() {
               <Compass className="w-3.5 h-3.5" />
               Realistic 3D View
             </button>
+            <button
+              onClick={() => setViewMode('Brochure')}
+              className={`flex items-center gap-2 px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 ${
+                viewMode === 'Brochure'
+                  ? 'bg-forest-900 text-white shadow-md'
+                  : 'text-forest-700 hover:text-forest-900'
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5" />
+              Layout Plan Brochure
+            </button>
           </div>
         </div>
 
         {/* Plan Area */}
         <div
           ref={fullscreenContainerRef}
-          className={`relative bg-bentley-green-50/90 backdrop-blur-md rounded-xl shadow-luxury-lg border border-forest-900/10 overflow-hidden ${
+          className={`relative bg-[#f4faf4] backdrop-blur-md rounded-xl shadow-luxury-lg border border-forest-900/10 overflow-hidden ${
             isFullscreen ? 'fixed inset-0 z-[9999] rounded-none border-0 shadow-none' : ''
           }`}
         >
@@ -1114,7 +1114,7 @@ export default function MasterPlan() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-bentley-green-50/90 backdrop-blur-md p-8 max-w-md w-full shadow-luxury-2xl relative border border-forest-900/10 rounded-2xl"
+              className="bg-white backdrop-blur-md p-8 max-w-md w-full shadow-luxury-2xl relative border border-forest-900/10 rounded-2xl"
               onClick={e => e.stopPropagation()}
             >
               <button 

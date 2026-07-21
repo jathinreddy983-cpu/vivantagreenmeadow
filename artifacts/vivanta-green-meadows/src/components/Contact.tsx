@@ -16,7 +16,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-gradient-to-b from-[#e8f5e4] via-[#f0f8ef] to-[#f7fbf6] relative border-t border-[#c3dcbe]/40">
+    <section id="contact" className="py-24 md:py-32 bg-[#eef8ef] relative border-t border-[#c3dcbe]/40">
       <div className="container mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -50,7 +50,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               {/* Site Address & QR Code */}
-              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-md items-center sm:items-start rounded-2xl">
+              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white backdrop-blur-md border border-forest-900/10 shadow-luxury-md items-center sm:items-start rounded-2xl">
                 <div className="w-32 sm:w-40 flex-shrink-0 text-center flex flex-col items-center">
                   <p className="text-[10px] font-sans text-forest-700 mb-2 uppercase tracking-wide">Scan QR for</p>
                   <img src="/assets/uploaded_qr.png" alt="Scan QR for Location" className="w-full h-auto border-2 border-forest-900/10 p-1 mb-2 object-cover" style={{ mixBlendMode: 'multiply' }} />
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
 
               {/* Office Address */}
-              <div className="p-6 sm:p-8 bg-bentley-green-50/90 backdrop-blur-md border border-forest-900/10 shadow-luxury-md flex flex-col sm:flex-row gap-6 items-center sm:items-start relative rounded-2xl">
+              <div className="p-6 sm:p-8 bg-white backdrop-blur-md border border-forest-900/10 shadow-luxury-md flex flex-col sm:flex-row gap-6 items-center sm:items-start relative rounded-2xl">
                 
                 {/* Simulated Logo (Vivanta Developers) */}
                 <div className="w-32 sm:w-40 flex-shrink-0 flex items-center justify-center p-2 pt-4">
@@ -110,7 +110,7 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-bentley-green-50/90 backdrop-blur-md p-8 md:p-10 shadow-luxury-xl border border-forest-900/10 rounded-2xl">
+          <div className="bg-white backdrop-blur-md p-8 md:p-10 shadow-luxury-xl border border-forest-900/10 rounded-2xl">
             {submitted ? (
               <motion.div 
                 initial={{ opacity: 0 }}
