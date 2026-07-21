@@ -184,7 +184,15 @@ export default function Hero() {
                 >
                   Book Visit
                 </a>
-
+                <button
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 squircle-lg border border-forest-800/20 hover:border-forest-800/80 bg-white/60 hover:bg-white/95 text-forest-900 font-sans text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-sm hover:shadow-md"
+                  onClick={() => setShowVideo(true)}
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current text-plum-brand">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Watch Story
+                </button>
               </motion.div>
             </div>
 
