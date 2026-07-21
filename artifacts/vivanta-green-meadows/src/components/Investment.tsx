@@ -40,7 +40,7 @@ const timeline = [
 
 export default function Investment() {
   return (
-    <section className="py-24 md:py-32 relative border-t border-[#c3dcbe]/40 overflow-hidden">
+    <section className="py-24 md:py-32 bg-[#eef8ef] relative border-t border-[#c3dcbe]/40 overflow-hidden">
       {/* Decorative Leaves */}
       <Leaf strokeWidth={0.5} className="absolute top-10 -left-20 w-[400px] h-[400px] text-forest-900/[0.02] rotate-[30deg] pointer-events-none" />
       <Leaf strokeWidth={0.5} className="absolute -bottom-20 -right-20 w-[500px] h-[500px] text-forest-900/[0.02] -rotate-[15deg] pointer-events-none" />
@@ -91,7 +91,7 @@ export default function Investment() {
                   </div>
 
                   {/* Content */}
-                  <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] glass-panel p-4 border-t-[3px] border-t-vibrant-green rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.03] hover:border-t-plum-brand z-10 hover:z-20">
+                  <div className="w-[calc(100%-2.5rem)] md:w-[calc(50%-1.5rem)] bg-white backdrop-blur-md p-4 border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] shadow-luxury-sm transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.03] hover:border-plum-brand z-10 hover:z-20">
                     <div className="flex justify-between items-start mb-2">
                       <span className="text-sm md:text-base font-bold text-gold-600">{item.year}</span>
                       <span className="text-[10px] md:text-xs font-bold uppercase tracking-wider text-forest-700 bg-[#e8f5e4] px-2 py-1 rounded-sm">{item.price}</span>
@@ -106,7 +106,7 @@ export default function Investment() {
           </div>
 
           {/* Right: Chart */}
-          <div className="glass-panel rounded-2xl p-6 md:p-8 shadow-xl">
+          <div className="bg-white backdrop-blur-md p-6 md:p-8 border border-forest-900/10 shadow-xl">
             <div className="mb-8">
               <h3 className="font-serif text-3xl sm:text-4xl text-forest-900 mb-3 leading-tight">Property Appreciation Trend</h3>
               <p className="text-xs md:text-sm text-stone-500 uppercase tracking-widest font-semibold">Hoskote vs City Average (₹/sq.ft)</p>

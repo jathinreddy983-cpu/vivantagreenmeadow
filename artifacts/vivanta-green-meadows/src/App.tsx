@@ -21,20 +21,10 @@ const queryClient = new QueryClient();
 
 function Home() {
   return (
-    <div className="min-h-full font-sans text-bentley-green-900 selection:bg-gold-500 selection:text-white transition-colors duration-300 relative z-0">
+    <div className="min-h-full font-sans text-bentley-green-900 selection:bg-gold-500 selection:text-white transition-colors duration-300">
       <Preloader />
-      
-      {/* 4K Cinematic Background Layers */}
-      <div className="fixed inset-0 -z-10 bg-[#FAF9F6] overflow-hidden pointer-events-none">
-        {/* Volumetric light leaks (heavily blurred orbs) */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-emerald-600/10 mix-blend-multiply blur-[140px]"></div>
-        <div className="absolute top-[40%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-forest-900/5 mix-blend-multiply blur-[160px]"></div>
-        <div className="absolute bottom-[-10%] left-[20%] w-[50vw] h-[50vw] rounded-full bg-gold-500/10 mix-blend-multiply blur-[120px]"></div>
-      </div>
-      <div className="film-grain"></div>
-
       <Navbar />
-      <main className="relative z-10">
+      <main>
         <VideoLanding />
         <Hero />
         <HeritageVision />

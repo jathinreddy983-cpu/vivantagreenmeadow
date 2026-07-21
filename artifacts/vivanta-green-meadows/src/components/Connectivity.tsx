@@ -131,7 +131,7 @@ export default function Connectivity() {
   return (
     <section
       id="connectivity"
-      className="relative py-16 sm:py-20 lg:py-28 text-forest-900 overflow-hidden border-t border-forest-900/5"
+      className="relative py-16 sm:py-20 lg:py-28 text-forest-900 overflow-hidden bg-white border-t border-forest-900/5"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
@@ -186,7 +186,7 @@ export default function Connectivity() {
                 {connectData[activeTab].map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-center justify-between gap-4 p-5 sm:p-6 glass-panel border-t-[3px] border-t-vibrant-green squircle-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-t-plum-brand"
+                    className="flex items-center justify-between gap-4 p-5 sm:p-6 bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] squircle-md shadow-luxury-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-plum-brand"
                   >
                     <div>
                       <span className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-forest-900 block leading-tight">{item.name}</span>
@@ -203,7 +203,7 @@ export default function Connectivity() {
 
           {/* Right: Map */}
           <FadeIn delay={0.3}>
-            <div className="relative p-6 sm:p-8 rounded-3xl glass-panel shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
+            <div className="relative p-6 sm:p-8 rounded-3xl bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 shadow-luxury-md overflow-hidden aspect-[4/3] flex flex-col justify-between">
               <div className="text-xs md:text-sm font-sans font-bold tracking-[0.25em] uppercase text-gold-600 mb-4">
                 Transit Corridor Maps
               </div>

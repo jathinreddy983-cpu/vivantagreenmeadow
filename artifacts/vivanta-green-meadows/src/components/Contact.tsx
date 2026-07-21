@@ -16,7 +16,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative border-t border-[#c3dcbe]/40">
+    <section id="contact" className="py-24 md:py-32 bg-[#eef8ef] relative border-t border-[#c3dcbe]/40">
       <div className="container mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -50,7 +50,7 @@ export default function Contact() {
 
             <div className="space-y-6">
               {/* Site Address & QR Code */}
-              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 glass-panel items-center sm:items-start rounded-2xl">
+              <div className="flex flex-col sm:flex-row gap-6 p-6 sm:p-8 bg-white backdrop-blur-md border border-forest-900/10 shadow-luxury-md items-center sm:items-start rounded-2xl">
                 <div className="w-32 sm:w-40 flex-shrink-0 text-center flex flex-col items-center">
                   <p className="text-[10px] font-sans text-forest-700 mb-2 uppercase tracking-wide">Scan QR for</p>
                   <img src="/assets/uploaded_qr.png" alt="Scan QR for Location" className="w-full h-auto border-2 border-forest-900/10 p-1 mb-2 object-cover" style={{ mixBlendMode: 'multiply' }} />
@@ -68,7 +68,7 @@ export default function Contact() {
               </div>
 
               {/* Office Address */}
-              <div className="p-6 sm:p-8 glass-panel flex flex-col sm:flex-row gap-6 items-center sm:items-start relative rounded-2xl">
+              <div className="p-6 sm:p-8 bg-white backdrop-blur-md border border-forest-900/10 shadow-luxury-md flex flex-col sm:flex-row gap-6 items-center sm:items-start relative rounded-2xl">
                 
                 {/* Simulated Logo (Vivanta Developers) */}
                 <div className="w-32 sm:w-40 flex-shrink-0 flex items-center justify-center p-2 pt-4">
@@ -110,7 +110,7 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="glass-panel p-8 md:p-10 shadow-luxury-xl rounded-2xl">
+          <div className="bg-white backdrop-blur-md p-8 md:p-10 shadow-luxury-xl border border-forest-900/10 rounded-2xl">
             {submitted ? (
               <motion.div 
                 initial={{ opacity: 0 }}
@@ -134,17 +134,17 @@ export default function Contact() {
                 <div className="space-y-4">
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-forest-900 font-bold mb-2">Full Name *</label>
-                    <input required type="text" className="w-full border border-gray-300/50 px-4 py-3 focus:outline-none focus:border-plum-brand bg-white/50 backdrop-blur-md" placeholder="John Doe" />
+                    <input required type="text" className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-gold-500 bg-gray-50/50" placeholder="John Doe" />
                   </div>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-forest-900 font-bold mb-2">Phone Number *</label>
-                      <input required type="tel" className="w-full border border-gray-300/50 px-4 py-3 focus:outline-none focus:border-plum-brand bg-white/50 backdrop-blur-md" placeholder="+91 XXXXX XXXXX" />
+                      <input required type="tel" className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-gold-500 bg-gray-50/50" placeholder="+91 XXXXX XXXXX" />
                     </div>
                     <div>
                       <label className="block text-xs uppercase tracking-wider text-forest-900 font-bold mb-2">Email Address *</label>
-                      <input required type="email" className="w-full border border-gray-300/50 px-4 py-3 focus:outline-none focus:border-plum-brand bg-white/50 backdrop-blur-md" placeholder="john@example.com" />
+                      <input required type="email" className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-gold-500 bg-gray-50/50" placeholder="john@example.com" />
                     </div>
                   </div>
 
@@ -152,8 +152,8 @@ export default function Contact() {
                     <label className="block text-xs uppercase tracking-wider text-forest-900 font-bold mb-3">Plot Sizing Choice *</label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       {["30X40 Plot (40 Available)", "30X45 Plot (33 Available)", "Commercial Plot (3 Available)", "Odd Site (19 Available)"].map((choice, i) => (
-                        <label key={i} className="flex items-center gap-3 p-3 border border-gray-200/50 bg-white/30 backdrop-blur-sm cursor-pointer hover:border-plum-brand transition-colors">
-                          <input type="radio" name="plotChoice" value={choice} required className="text-plum-brand focus:ring-plum-brand" />
+                        <label key={i} className="flex items-center gap-3 p-3 border border-gray-200 cursor-pointer hover:border-gold-500 transition-colors">
+                          <input type="radio" name="plotChoice" value={choice} required className="text-gold-500 focus:ring-gold-500" />
                           <span className="text-sm text-forest-900">{choice}</span>
                         </label>
                       ))}
@@ -162,7 +162,7 @@ export default function Contact() {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-forest-900 font-bold mb-2">Additional Message</label>
-                    <textarea rows={3} className="w-full border border-gray-300/50 px-4 py-3 focus:outline-none focus:border-plum-brand bg-white/50 backdrop-blur-md" placeholder="Any specific requirements..."></textarea>
+                    <textarea rows={3} className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-gold-500 bg-gray-50/50" placeholder="Any specific requirements..."></textarea>
                   </div>
                 </div>
 

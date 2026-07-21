@@ -997,7 +997,7 @@ export default function MasterPlan() {
   };
 
   return (
-    <section id="master-plan" className="py-24 md:py-32 relative border-t border-forest-900/5">
+    <section id="master-plan" className="py-24 md:py-32 bg-white relative border-t border-[#c3dcbe]/40">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -1048,12 +1048,12 @@ export default function MasterPlan() {
         {/* Plan Area */}
         <div
           ref={fullscreenContainerRef}
-          className={`relative glass-panel rounded-xl overflow-hidden ${
+          className={`relative bg-[#f4faf4] backdrop-blur-md rounded-xl shadow-luxury-lg border border-forest-900/10 overflow-hidden ${
             isFullscreen ? 'fixed inset-0 z-[9999] rounded-none border-0 shadow-none' : ''
           }`}
         >
           {viewMode === 'Brochure' ? (
-            <div className="p-4 md:p-8 flex flex-col items-center justify-center glass-panel rounded-sm">
+            <div className="p-4 md:p-8 flex flex-col items-center justify-center bg-stone-50 border border-stone-200 shadow-inner rounded-sm">
               <div className="text-center mb-4">
                 <span className="text-xs uppercase text-stone-500 font-sans tracking-widest block mb-1">STRR Approved Plan</span>
                 <h4 className="font-serif text-lg text-forest-900">Residential Layout Plan to Great Living</h4>
@@ -1114,7 +1114,7 @@ export default function MasterPlan() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="glass-panel p-8 max-w-md w-full shadow-luxury-2xl relative rounded-2xl"
+              className="bg-white backdrop-blur-md p-8 max-w-md w-full shadow-luxury-2xl relative border border-forest-900/10 rounded-2xl"
               onClick={e => e.stopPropagation()}
             >
               <button 

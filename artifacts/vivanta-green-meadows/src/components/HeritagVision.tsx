@@ -39,7 +39,7 @@ export default function HeritageVision() {
   return (
     <section
       id="heritage"
-      className="relative py-16 sm:py-20 lg:py-28 text-stone-900 overflow-hidden border-t border-forest-900/5"
+      className="relative py-16 sm:py-20 lg:py-28 text-stone-900 overflow-hidden bg-white border-t border-forest-900/5"
     >
       {/* Decorative */}
       <div className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full pointer-events-none"
@@ -75,7 +75,7 @@ export default function HeritageVision() {
 
           {/* Right: Pull Quote */}
           <FadeIn delay={0.4} direction="right">
-            <div className="relative p-8 sm:p-10 rounded-3xl glass-panel shadow-luxury-lg overflow-hidden">
+            <div className="relative p-8 sm:p-10 rounded-3xl bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 shadow-luxury-lg overflow-hidden">
               <div className="absolute top-0 left-8 -translate-y-1/2">
                 <div className="w-8 h-8 rounded-full border-2 border-gold-500 flex items-center justify-center bg-white">
                   <div className="w-3.5 h-3.5 rounded-full bg-gold-500" />
@@ -93,7 +93,7 @@ export default function HeritageVision() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {pillars.map((pillar, idx) => (
             <FadeIn key={pillar.title} delay={0.1 + idx * 0.1}>
-              <div className="min-h-[180px] sm:min-h-[220px] p-5 sm:p-6 glass-panel border-t-[3px] border-t-vibrant-green rounded-2xl flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-2.5 hover:scale-[1.03] hover:border-t-plum-brand">
+              <div className="min-h-[180px] sm:min-h-[220px] p-5 sm:p-6 bg-[#f4faf4] backdrop-blur-md border border-forest-900/10 border-t-[3px] border-t-[#8CC63F] rounded-2xl shadow-luxury-sm flex flex-col justify-between hover:shadow-2xl transition-all duration-300 hover:-translate-y-2.5 hover:scale-[1.03] hover:border-plum-brand">
                 <div className="flex flex-col h-full justify-between">
                   <div>
                     <div className="text-xs font-sans font-bold tracking-widest text-gold-600 uppercase mb-4">
