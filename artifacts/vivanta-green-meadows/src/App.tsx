@@ -25,7 +25,11 @@ function Home() {
       <Preloader />
       
       {/* 4K Cinematic Background Layers */}
-      <div className="fixed inset-0 -z-10 bg-[#FAF9F6] overflow-hidden pointer-events-none">
+      <div 
+        className="fixed inset-0 -z-10 bg-cover bg-center overflow-hidden pointer-events-none"
+        style={{ backgroundImage: 'url(/assets/4k-cinematic-bg.png)' }}
+      >
+        <div className="absolute inset-0 bg-white/50 backdrop-blur-[4px]"></div>
         {/* Volumetric light leaks (heavily blurred orbs) */}
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-emerald-600/10 mix-blend-multiply blur-[140px]"></div>
         <div className="absolute top-[40%] right-[-10%] w-[60vw] h-[60vw] rounded-full bg-forest-900/5 mix-blend-multiply blur-[160px]"></div>
